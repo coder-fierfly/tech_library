@@ -11,6 +11,8 @@ import org.apache.pdfbox.text.PDFTextStripperByArea;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.util.Objects;
 
 //крч, надо посмтореть по бд
 // надо понять как читать файл и предлагать нужные файлы по слову
@@ -20,11 +22,10 @@ import java.io.IOException;
 public class PDFViewTest extends Application {
 
     public PDFViewTest() {
-
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage primaryStage) throws Exception {
 //        final PDDocument document;
 //        try {
 //            document = PDDocument.load(new File("C:\\Users\\lena\\Desktop\\ref.pdf"));
@@ -45,15 +46,16 @@ public class PDFViewTest extends Application {
 //            }
 //        }
 
-        Parent root = FXMLLoader.load(PDFViewTest.class.getResource("/help.fxml"));
+        Parent root = (Parent)FXMLLoader.load((URL) Objects.requireNonNull(this.getClass().getResource("help.fxml")));
+           //     FXMLLoader.load(PDFViewTest.class.getResource("/help.fxml"));
 
         Scene scene = new Scene(root);
 
-        stage.setScene(scene);
-        stage.setTitle("PDF simple viewer by PDFBox");
-        stage.show();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("PDF simple viewer by PDFBox");
+        primaryStage.show();
 
-//        //TODO файл открытие само
+//        //TODO файл открытие с помо
 //        File file = new File("C:\\Users\\lena\\Desktop\\ref.pdf");
 //        Desktop.getDesktop().open(file);
 
