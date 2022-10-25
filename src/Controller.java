@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.util.ResourceBundle;
+import java.sql.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,9 +16,9 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.w3c.dom.ls.LSOutput;
 
-public class Controller implements Initializable {
-
+public class Controller extends DatabaseHandler implements Initializable{
     @FXML
     private TextArea textArea;
     @FXML
@@ -31,28 +33,24 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        try {
+            getDbConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         //действие на кнопку ok
         text.setText("Введите слово для поиска");
-        okButton.setOnAction((event) -> {
-            //если нет такого слова в книгах вывести сообщение об этом
-            if (textArea.getText().length() < 50) {
-                System.out.println("Input: " + textArea.getText());
-            } else {
-                text.setText("Слово должно быть покороче");
-                System.out.println("больше");
-            }
-        });
 
         //понять как добавить информацию из таблиц
         TreeItem<String> rootItem = new TreeItem<>("Files");
         //  TreeItem<String> rootItem = new TreeItem<>("Files", new ImageView(new Image("Folder_Icon.png")));
 
-        //второе звено
+        //второе вложение
         TreeItem<String> branchItem1 = new TreeItem<>("Pictures");
         TreeItem<String> branchItem2 = new TreeItem<>("Videos");
         TreeItem<String> branchItem3 = new TreeItem<>("Music");
 
-        //третье звено
+        //третье вложение
         TreeItem<String> leafItem1 = new TreeItem<>("picture1");
         TreeItem<String> leafItem2 = new TreeItem<>("picture2");
         TreeItem<String> leafItem3 = new TreeItem<>("video1");
@@ -73,7 +71,6 @@ public class Controller implements Initializable {
         branchItem2.getChildren().addAll(leafItem3, leafItem4);
         branchItem3.getChildren().addAll(leafItem5, leafItem6, leafItem7, leafItem8, leafItem9,
                 leafItem10, leafItem11, leafItem12);
-
 
         //treeView.setShowRoot(false);
 
@@ -97,6 +94,16 @@ public class Controller implements Initializable {
                 var3.printStackTrace();
             }
         });
+        this.okButton.setOnAction((event) -> {
+            //если нет такого слова в книгах вывести сообщение об этом
+            if (textArea.getText().length() < 50) {
+                System.out.println("Input: " + textArea.getText());
+            } else {
+                text.setText("Слово должно быть покороче");
+                System.out.println("больше");
+            }
+            // TODO если слово не найдено в файликах, то байбич
+        });
     }
 
     @FXML
@@ -108,7 +115,7 @@ public class Controller implements Initializable {
         stage.setTitle("Информация");
         stage.setResizable(false);
         //TODO добавить каку-нибудь картиночку))()
-        //  stage.getIcons().add(new Image("file:com/company/pictures/Calendar.png"));
+        //stage.getIcons().add(new Image("file:com/company/pictures/Calendar.png"));
         stage.show();
     }
 }

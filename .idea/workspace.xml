@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="первые наработки по курсовой">
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="добавлено окно с информацией">
+      <change afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PDFViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDFViewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/help.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/help.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled8.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/lena/IdeaProjects/untitled8",
+    "last_opened_file_path": "D:/metabase.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -56,6 +57,12 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lena\IdeaProjects\untitled8\src" />
+      <recent name="C:\Users\lena\IdeaProjects\untitled8\out\production\untitled8" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PDFViewTest" />
@@ -85,7 +92,11 @@
       <workItem from="1666442720271" duration="784000" />
       <workItem from="1666453655576" duration="2613000" />
       <workItem from="1666515393420" duration="7158000" />
-      <workItem from="1666538810879" duration="1362000" />
+      <workItem from="1666538810879" duration="2992000" />
+      <workItem from="1666549565289" duration="985000" />
+      <workItem from="1666608811458" duration="488000" />
+      <workItem from="1666623752837" duration="5974000" />
+      <workItem from="1666684030328" duration="1760000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -94,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666374113032</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="добавлено окно с информацией">
+      <created>1666540314566</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666540314566</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,6 +143,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="первые наработки по курсовой" />
-    <option name="LAST_COMMIT_MESSAGE" value="первые наработки по курсовой" />
+    <MESSAGE value="добавлено окно с информацией" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавлено окно с информацией" />
   </component>
 </project>
