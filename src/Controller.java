@@ -17,6 +17,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
+//todo подумать как класть элементы из бд в дерево
 public class Controller extends DatabaseHandler implements Initializable {
     public Label lable;
     @FXML

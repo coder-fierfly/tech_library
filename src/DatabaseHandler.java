@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
@@ -24,11 +25,17 @@ public class DatabaseHandler extends Configs {
         } else {
             System.out.println("Failed to make connection to database");
         }
-
+        ArrayList<String> asd = getName();
+        System.out.println(asd.size());
+        System.out.println(asd.get(0));
+        System.out.println(asd.get(1));
+        System.out.println(asd.get(2));
+     //   System.out.println(getSpecsForProfile());
         return dbConnection;
     }
 
-    public int getInfo() {
+    //может потом переписать для общего досавания или ни....
+    public ArrayList<String> getName() {
         Statement statement = null;
         int id = 0;
         try {
@@ -43,6 +50,7 @@ public class DatabaseHandler extends Configs {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        ArrayList<String> name = new ArrayList<>();
         while (true) {
             try {
                 if (!resultSet.next()) break;
@@ -50,35 +58,32 @@ public class DatabaseHandler extends Configs {
                 throw new RuntimeException(e);
             }
             try {
-                id = resultSet.getInt(1);
+                name.add(resultSet.getString(2));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            String name = null;
-            try {
-                name = resultSet.getString(2);
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            System.out.println("id:" + id + "name:  " + name);
+            // System.out.println("id:" + id + "name:  " + name);
         }
-        return id;
+        return name;
     }
 
 
     //TODO попробовать вызывать что-то из файлов)
-//    public ResultSet getSpecsForProfile(int id) {
-//        ResultSet resSet = null;
-//        StringBuilder select = new StringBuilder();
-//        select.append("SELECT * FROM ").append(Const.TAG_TABLE).append(" WHERE ").append(Const.TAG_USER).append("='").append(id).append("'");
-//        System.out.println(select);
-//
-//        try {
-//            PreparedStatement pStatement = getDbConnection().prepareStatement(String.valueOf(select));
-//            resSet = pStatement.executeQuery();
-//        } catch (SQLException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//        return resSet;
-//    }
+    public ResultSet getSpecsForProfile() {
+        ResultSet resSet = null;
+        StringBuilder select = new StringBuilder();
+        select.append("SELECT").append(Const.PLANE_NAME).append("FROM ").append(Const.TABLE_PLANE);
+        System.out.println(select);
+
+        try {
+            PreparedStatement pStatement = getDbConnection().prepareStatement(String.valueOf(select));
+            resSet = pStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return resSet;
+    }
+
+    //TODO сделать выбор по эффективити
+    //todo сдеать поиск по словам из файлов и вывод данных файлов
 }

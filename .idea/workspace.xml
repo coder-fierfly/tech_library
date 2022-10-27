@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="Немного накидала наработок, сильно ничего не меняла">
-      <change afterPath="$PROJECT_DIR$/src/Const.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/doc/1.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/doc/2.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70/storage_v2/_src_/database/airplane.Up-l1w/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70/storage_v2/_src_/database/airplane.Up-l1w/schema/public.abK9xQ.meta" afterDir="false" />
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="Сделала открытие файла по кнопке">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Const.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PDFViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDFViewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/help.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/help.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,26 +34,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/lena/IdeaProjects/untitled8",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lena/IdeaProjects/untitled8&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\lena\IdeaProjects\untitled8\src\doc" />
@@ -108,7 +100,8 @@
       <workItem from="1666777914707" duration="1026000" />
       <workItem from="1666792551944" duration="2882000" />
       <workItem from="1666802384652" duration="963000" />
-      <workItem from="1666857332333" duration="7017000" />
+      <workItem from="1666857332333" duration="8250000" />
+      <workItem from="1666885988426" duration="2671000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -138,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666858698673</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Сделала открытие файла по кнопке">
+      <created>1666868547138</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666868547138</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +172,7 @@
     <MESSAGE value="добавлено окно с информацией" />
     <MESSAGE value="Закконектилась с бд" />
     <MESSAGE value="Немного накидала наработок, сильно ничего не меняла" />
-    <option name="LAST_COMMIT_MESSAGE" value="Немного накидала наработок, сильно ничего не меняла" />
+    <MESSAGE value="Сделала открытие файла по кнопке" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделала открытие файла по кнопке" />
   </component>
 </project>
