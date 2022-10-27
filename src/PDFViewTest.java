@@ -55,9 +55,6 @@ public class PDFViewTest extends Application {
         primaryStage.setTitle("PDF simple viewer by PDFBox");
         primaryStage.show();
 
-//        //TODO файл открытие с помо
-//        File file = new File("C:\\Users\\lena\\Desktop\\ref.pdf");
-//        Desktop.getDesktop().open(file);
 
 
 //

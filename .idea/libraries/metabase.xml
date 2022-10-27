@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="metabase">
+    <CLASSES>
+      <root url="jar://D:/metabase.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://D:/metabase.jar!/" />
+    </SOURCES>
+  </library>
+</component>

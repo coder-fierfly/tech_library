@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="добавлено окно с информацией">
-      <change afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="Закконектилась с бд">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PDFViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDFViewTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled8.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/help.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +39,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/metabase.jar",
+    "last_opened_file_path": "C:/Users/lena/IdeaProjects/untitled8",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -96,7 +94,13 @@
       <workItem from="1666549565289" duration="985000" />
       <workItem from="1666608811458" duration="488000" />
       <workItem from="1666623752837" duration="5974000" />
-      <workItem from="1666684030328" duration="1760000" />
+      <workItem from="1666684030328" duration="2350000" />
+      <workItem from="1666692866809" duration="1400000" />
+      <workItem from="1666721126782" duration="1097000" />
+      <workItem from="1666777914707" duration="1026000" />
+      <workItem from="1666792551944" duration="2882000" />
+      <workItem from="1666802384652" duration="963000" />
+      <workItem from="1666857332333" duration="1305000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -112,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666540314566</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Закконектилась с бд">
+      <created>1666686007048</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666686007048</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +155,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="первые наработки по курсовой" />
     <MESSAGE value="добавлено окно с информацией" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавлено окно с информацией" />
+    <MESSAGE value="Закконектилась с бд" />
+    <option name="LAST_COMMIT_MESSAGE" value="Закконектилась с бд" />
   </component>
 </project>
