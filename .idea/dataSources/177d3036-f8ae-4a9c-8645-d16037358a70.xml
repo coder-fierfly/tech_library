@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.43">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>564</IntrospectionStateNumber>
+      <IntrospectionStateNumber>583</IntrospectionStateNumber>
       <ServerVersion>12.12</ServerVersion>
       <StartupTime>1666351144</StartupTime>
       <TimeZones>true ACDT
@@ -801,7 +801,7 @@ true posixrules
 13018||10|C|G
 13018||-9223372036854775808|U|G
 13018||10|U|G</Grants>
-      <IntrospectionStateNumber>564</IntrospectionStateNumber>
+      <IntrospectionStateNumber>583</IntrospectionStateNumber>
       <ObjectId>16703</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4024,84 +4024,143 @@ true posixrules
     <schema id="246" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>564</IntrospectionStateNumber>
+      <IntrospectionStateNumber>583</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>276</StateNumber>
       <OwnerName>postgres</OwnerName>
     </schema>
     <table id="247" parent="246" name="doc">
-      <ObjectId>16735</ObjectId>
-      <StateNumber>543</StateNumber>
+      <ObjectId>16958</ObjectId>
+      <StateNumber>581</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="248" parent="246" name="effectivity">
+    <table id="248" parent="246" name="doc_effectivity">
+      <ObjectId>16979</ObjectId>
+      <StateNumber>581</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="249" parent="246" name="effectivity">
       <ObjectId>16712</ObjectId>
       <StateNumber>542</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="249" parent="246" name="plane">
+    <table id="250" parent="246" name="plane">
       <ObjectId>16704</ObjectId>
       <StateNumber>542</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="250" parent="246" name="plane_effectivity">
+    <table id="251" parent="246" name="plane_effectivity">
       <ObjectId>16720</ObjectId>
       <StateNumber>542</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="251" parent="247" name="doc_id">
+    <table id="252" parent="246" name="text_by_doc">
+      <ObjectId>16966</ObjectId>
+      <StateNumber>581</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="253" parent="247" name="doc_id">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>543</StateNumber>
+      <StateNumber>581</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="252" parent="247" name="doc_name">
+    <column id="254" parent="247" name="doc_name">
       <DataType>varchar|0s</DataType>
       <Position>2</Position>
-      <StateNumber>543</StateNumber>
+      <StateNumber>581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="253" parent="247" name="doc_file">
-      <DataType>char|0s</DataType>
-      <Position>3</Position>
-      <StateNumber>543</StateNumber>
-      <TypeId>1042</TypeId>
-    </column>
-    <index id="254" parent="247" name="doc_pkey">
+    <index id="255" parent="247" name="doc_pkey">
       <ColNames>doc_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16741</ObjectId>
+      <ObjectId>16964</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>543</StateNumber>
+      <StateNumber>581</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="255" parent="247" name="doc_pkey">
+    <key id="256" parent="247" name="doc_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16742</ObjectId>
+      <ObjectId>16965</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>543</StateNumber>
-      <UnderlyingIndexId>16741</UnderlyingIndexId>
+      <StateNumber>581</StateNumber>
+      <UnderlyingIndexId>16964</UnderlyingIndexId>
     </key>
-    <column id="256" parent="248" name="effectivity_id">
+    <column id="257" parent="248" name="doc_id">
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>581</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="258" parent="248" name="effectivity_id">
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>581</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="259" parent="248" name="doc_effectivity_doc_id_fkey">
+      <ColNames>doc_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16984</ObjectId>
+      <RefColNames>doc_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>581</StateNumber>
+      <RefTableId>16958</RefTableId>
+      <RefTableName>doc</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="260" parent="248" name="doc_effectivity_effectivity_id_fkey">
+      <ColNames>effectivity_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16989</ObjectId>
+      <RefColNames>effectivity_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>581</StateNumber>
+      <RefTableId>16712</RefTableId>
+      <RefTableName>effectivity</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="261" parent="248" name="doc_effectivity_pkey">
+      <ColNames>doc_id
+effectivity_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16982</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>581</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="262" parent="248" name="doc_effectivity_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16983</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>581</StateNumber>
+      <UnderlyingIndexId>16982</UnderlyingIndexId>
+    </key>
+    <column id="263" parent="249" name="effectivity_id">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>542</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="257" parent="248" name="effectivity_name">
+    <column id="264" parent="249" name="effectivity_name">
       <DataType>varchar|0s</DataType>
       <Position>2</Position>
       <StateNumber>542</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="258" parent="248" name="effectivity_pkey">
+    <index id="265" parent="249" name="effectivity_pkey">
       <ColNames>effectivity_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16718</ObjectId>
@@ -4110,27 +4169,27 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="259" parent="248" name="effectivity_pkey">
+    <key id="266" parent="249" name="effectivity_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16719</ObjectId>
       <Primary>1</Primary>
       <StateNumber>542</StateNumber>
       <UnderlyingIndexId>16718</UnderlyingIndexId>
     </key>
-    <column id="260" parent="249" name="plane_id">
+    <column id="267" parent="250" name="plane_id">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>538</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="261" parent="249" name="plane_name">
+    <column id="268" parent="250" name="plane_name">
       <DataType>varchar|0s</DataType>
       <Position>2</Position>
       <StateNumber>538</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="262" parent="249" name="plane_pkey">
+    <index id="269" parent="250" name="plane_pkey">
       <ColNames>plane_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16710</ObjectId>
@@ -4139,28 +4198,28 @@ true posixrules
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="263" parent="249" name="plane_pkey">
+    <key id="270" parent="250" name="plane_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16711</ObjectId>
       <Primary>1</Primary>
       <StateNumber>538</StateNumber>
       <UnderlyingIndexId>16710</UnderlyingIndexId>
     </key>
-    <column id="264" parent="250" name="plane_id">
+    <column id="271" parent="251" name="plane_id">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>542</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="265" parent="250" name="effectivity_id">
+    <column id="272" parent="251" name="effectivity_id">
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>542</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="266" parent="250" name="plane_effectivity_plane_id_fkey">
+    <foreign-key id="273" parent="251" name="plane_effectivity_plane_id_fkey">
       <ColNames>plane_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16725</ObjectId>
@@ -4171,7 +4230,7 @@ true posixrules
       <RefTableName>plane</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <foreign-key id="267" parent="250" name="plane_effectivity_effectivity_id_fkey">
+    <foreign-key id="274" parent="251" name="plane_effectivity_effectivity_id_fkey">
       <ColNames>effectivity_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16730</ObjectId>
@@ -4182,7 +4241,7 @@ true posixrules
       <RefTableName>effectivity</RefTableName>
       <RefTableKind>table</RefTableKind>
     </foreign-key>
-    <index id="268" parent="250" name="plane_effectivity_pkey">
+    <index id="275" parent="251" name="plane_effectivity_pkey">
       <ColNames>plane_id
 effectivity_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -4192,12 +4251,58 @@ effectivity_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="269" parent="250" name="plane_effectivity_pkey">
+    <key id="276" parent="251" name="plane_effectivity_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16724</ObjectId>
       <Primary>1</Primary>
       <StateNumber>542</StateNumber>
       <UnderlyingIndexId>16723</UnderlyingIndexId>
+    </key>
+    <column id="277" parent="252" name="text_id">
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>581</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="278" parent="252" name="doc_id">
+      <DataType>integer|0s</DataType>
+      <Position>2</Position>
+      <StateNumber>581</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="279" parent="252" name="doc_text">
+      <DataType>text|0s</DataType>
+      <Position>3</Position>
+      <StateNumber>581</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <foreign-key id="280" parent="252" name="text_by_doc_doc_id_fkey">
+      <ColNames>doc_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16974</ObjectId>
+      <RefColNames>doc_id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>581</StateNumber>
+      <RefTableId>16958</RefTableId>
+      <RefTableName>doc</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="281" parent="252" name="text_by_doc_pkey">
+      <ColNames>text_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16972</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>581</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="282" parent="252" name="text_by_doc_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16973</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>581</StateNumber>
+      <UnderlyingIndexId>16972</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

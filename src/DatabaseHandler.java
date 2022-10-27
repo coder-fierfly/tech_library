@@ -4,7 +4,6 @@ public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
     public Connection getDbConnection() throws SQLException {
-        System.out.println("@@@@@@@@@@@@");
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -25,11 +24,11 @@ public class DatabaseHandler extends Configs {
         } else {
             System.out.println("Failed to make connection to database");
         }
-        System.out.println(getInfo() + "фывфыв");
 
         return dbConnection;
     }
-    public int getInfo(){
+
+    public int getInfo() {
         Statement statement = null;
         int id = 0;
         try {
@@ -44,14 +43,12 @@ public class DatabaseHandler extends Configs {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        System.out.println("___________");
-        while(true){
+        while (true) {
             try {
                 if (!resultSet.next()) break;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             try {
                 id = resultSet.getInt(1);
             } catch (SQLException e) {
@@ -63,8 +60,25 @@ public class DatabaseHandler extends Configs {
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-            System.out.println(id + "  " + name);
+            System.out.println("id:" + id + "name:  " + name);
         }
         return id;
     }
+
+
+    //TODO попробовать вызывать что-то из файлов)
+//    public ResultSet getSpecsForProfile(int id) {
+//        ResultSet resSet = null;
+//        StringBuilder select = new StringBuilder();
+//        select.append("SELECT * FROM ").append(Const.TAG_TABLE).append(" WHERE ").append(Const.TAG_USER).append("='").append(id).append("'");
+//        System.out.println(select);
+//
+//        try {
+//            PreparedStatement pStatement = getDbConnection().prepareStatement(String.valueOf(select));
+//            resSet = pStatement.executeQuery();
+//        } catch (SQLException | ClassNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        return resSet;
+//    }
 }

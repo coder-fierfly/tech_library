@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="Закконектилась с бд">
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="Немного накидала наработок, сильно ничего не меняла">
+      <change afterPath="$PROJECT_DIR$/src/Const.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/doc/1.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/doc/2.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70/storage_v2/_src_/database/airplane.Up-l1w/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70/storage_v2/_src_/database/airplane.Up-l1w/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InfoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/PDFViewTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PDFViewTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/help.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/help.fxml" afterDir="false" />
     </list>
@@ -57,6 +64,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lena\IdeaProjects\untitled8\src\doc" />
       <recent name="C:\Users\lena\IdeaProjects\untitled8\src" />
       <recent name="C:\Users\lena\IdeaProjects\untitled8\out\production\untitled8" />
     </key>
@@ -100,7 +108,7 @@
       <workItem from="1666777914707" duration="1026000" />
       <workItem from="1666792551944" duration="2882000" />
       <workItem from="1666802384652" duration="963000" />
-      <workItem from="1666857332333" duration="1305000" />
+      <workItem from="1666857332333" duration="7017000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -123,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666686007048</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Немного накидала наработок, сильно ничего не меняла">
+      <created>1666858698673</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666858698673</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +171,7 @@
     <MESSAGE value="первые наработки по курсовой" />
     <MESSAGE value="добавлено окно с информацией" />
     <MESSAGE value="Закконектилась с бд" />
-    <option name="LAST_COMMIT_MESSAGE" value="Закконектилась с бд" />
+    <MESSAGE value="Немного накидала наработок, сильно ничего не меняла" />
+    <option name="LAST_COMMIT_MESSAGE" value="Немного накидала наработок, сильно ничего не меняла" />
   </component>
 </project>

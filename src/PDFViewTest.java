@@ -14,8 +14,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 
-//крч, надо посмтореть по бд
-// надо понять как читать файл и предлагать нужные файлы по слову
 
 // в бд должно быть разграничение по типам самолетов, по их выпуску, по словам из глав
 
@@ -46,15 +44,13 @@ public class PDFViewTest extends Application {
 //            }
 //        }
 
-        Parent root = (Parent)FXMLLoader.load((URL) Objects.requireNonNull(this.getClass().getResource("help.fxml")));
-           //     FXMLLoader.load(PDFViewTest.class.getResource("/help.fxml"));
+        Parent root = (Parent) FXMLLoader.load((URL) Objects.requireNonNull(this.getClass().getResource("help.fxml")));
 
         Scene scene = new Scene(root);
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("PDF simple viewer by PDFBox");
         primaryStage.show();
-
 
 
 //

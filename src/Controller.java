@@ -5,23 +5,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.sql.*;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Orientation;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class Controller extends DatabaseHandler implements Initializable{
+public class Controller extends DatabaseHandler implements Initializable {
     public Label lable;
     @FXML
     private TextArea textArea;
@@ -45,8 +41,10 @@ public class Controller extends DatabaseHandler implements Initializable{
         }
         //действие на кнопку ok
 
-        //понять как добавить информацию из таблиц бд
+        //понять как добавить информацию из таблиц бд........
         TreeItem<String> rootItem = new TreeItem<>("Самолеты");
+
+        //добавление картиночки
         //  TreeItem<String> rootItem = new TreeItem<>("Files", new ImageView(new Image("Folder_Icon.png")));
 
         //второе вложение
@@ -60,8 +58,8 @@ public class Controller extends DatabaseHandler implements Initializable{
         TreeItem<String> leafItem4 = new TreeItem<>("эффективити 2(737)");
 
         File file = new File("C:\\Users\\lena\\Desktop\\1.pdf");
-        TreeItem<String> leafItem5 = new TreeItem<>("типо файл 1");
-        TreeItem<String> leafItem6 = new TreeItem<>("типо файл 2");
+        TreeItem<String> leafItem5 = new TreeItem<>("1");
+        TreeItem<String> leafItem6 = new TreeItem<>("2");
         TreeItem<String> leafItem7 = new TreeItem<>("типо файл 3");
         TreeItem<String> leafItem8 = new TreeItem<>("типо файл 4");
         TreeItem<String> leafItem9 = new TreeItem<>("типо файл 5");
@@ -76,10 +74,10 @@ public class Controller extends DatabaseHandler implements Initializable{
         branchItem1.getChildren().addAll(leafItem1, leafItem2);
         branchItem2.getChildren().addAll(leafItem3, leafItem4);
 
-        leafItem1.getChildren().addAll(leafItem5,leafItem6, leafItem7);
-        leafItem2.getChildren().addAll(leafItem8,leafItem9);
-        leafItem3.getChildren().addAll(leafItem10,leafItem11);
-        leafItem4.getChildren().addAll(leafItem12);
+        leafItem1.getChildren().addAll(leafItem5, leafItem6);
+//        leafItem2.getChildren().addAll(leafItem8, leafItem9);
+//        leafItem3.getChildren().addAll(leafItem10, leafItem11);
+//        leafItem4.getChildren().addAll(leafItem12);
 
 //        TreeView<String> treeView = new TreeView<String>(rootItem);
 
@@ -107,20 +105,18 @@ public class Controller extends DatabaseHandler implements Initializable{
 
     public void selectTreeView() {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
-        // TODO написать сюда вызов файла
-        // сделать что-то типо проверки для файлов
 
-        // оставить проверку на item, а в него написать проверочку уже для файлика
         if (item != null) {
-           System.out.println(item.getValue());
-            System.out.println("!!!!!!!!!!!!");
-            System.out.println(item.getChildren());
-            System.out.println("!!!!!!!!!!!!");
+            System.out.println(item.getValue());
+            //TODO переделать глупейшую проверку на цифру и сделать шо-то другое
+            if (item.getValue().matches("\\d.*")) {
+                openPdf("src/doc/" + item.getValue() + ".pdf");
+            }
         }
     }
 
+    // открытие файла в браузере
     private void openPdf(String path) {
-        //TODO файл открытие в браузере
         File file = new File(path);
         try {
             Desktop.getDesktop().open(file);
@@ -130,6 +126,7 @@ public class Controller extends DatabaseHandler implements Initializable{
     }
 
     private void drawFooter() {
+        //привязка кнопки информации к окну
         this.info.setOnAction((event) -> {
             try {
                 this.infoOpen();
@@ -137,6 +134,8 @@ public class Controller extends DatabaseHandler implements Initializable{
                 var3.printStackTrace();
             }
         });
+
+        //подтверждение поиска слова по файлам
         this.okButton.setOnAction((event) -> {
             //если нет такого слова в книгах вывести сообщение об этом
             if (textArea.getText().length() < 50) {
@@ -149,6 +148,7 @@ public class Controller extends DatabaseHandler implements Initializable{
         });
     }
 
+    //открытие окошка с информацией
     @FXML
     private void infoOpen() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("info.fxml"));
