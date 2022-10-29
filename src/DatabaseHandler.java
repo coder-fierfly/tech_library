@@ -25,17 +25,19 @@ public class DatabaseHandler extends Configs {
         } else {
             System.out.println("Failed to make connection to database");
         }
-        ArrayList<String> asd = getName();
+        System.out.println("%%%%%%%%%%%%%%%%%%%%");
+        ArrayList<String> asd = getName("effectivity");
         System.out.println(asd.size());
         System.out.println(asd.get(0));
         System.out.println(asd.get(1));
-        System.out.println(asd.get(2));
-     //   System.out.println(getSpecsForProfile());
+        System.out.println("%%%%%%%%%%%%%%%%%%%%");
+//        System.out.println(asd.get(2));
+        //   System.out.println(getSpecsForProfile());
         return dbConnection;
     }
 
     //может потом переписать для общего досавания или ни....
-    public ArrayList<String> getName() {
+    public ArrayList<String> getName(String table) {
         Statement statement = null;
         int id = 0;
         try {
@@ -46,7 +48,7 @@ public class DatabaseHandler extends Configs {
         //TODO записать сюда поиск по файлам))
         ResultSet resultSet = null;
         try {
-            resultSet = statement.executeQuery("SELECT * FROM plane");
+            resultSet = statement.executeQuery("SELECT * FROM " + table);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
