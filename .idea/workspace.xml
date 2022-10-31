@@ -4,10 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="научилась доставать какие-то данные из бд">
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="данные из бд более-менее отображаются">
+      <change afterPath="$PROJECT_DIR$/src/info.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70/storage_v2/_src_/database/airplane.Up-l1w.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70/storage_v2/_src_/database/airplane.Up-l1w/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70/storage_v2/_src_/database/airplane.Up-l1w/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/177d3036-f8ae-4a9c-8645-d16037358a70/storage_v2/_src_/database/airplane.Up-l1w/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/metabase.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/metabase.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/pdfbox_app_2_0_27.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/pdfbox_app_2_0_27.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_5_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_5_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc/2.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/2 nnn.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled8.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -34,26 +48,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/lena/IdeaProjects/untitled8&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/всякие приколюхи/Штуки 4 сем/java/Calendar111",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\lena\IdeaProjects\untitled8\src\doc" />
@@ -62,10 +80,10 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+    <configuration name="PDFViewTest" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PDFViewTest" />
       <module name="untitled8" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;D:\javafx-sdk-18\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\libraries\javafx-sdk-18\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,7 +120,13 @@
       <workItem from="1666802384652" duration="963000" />
       <workItem from="1666857332333" duration="8250000" />
       <workItem from="1666885988426" duration="4724000" />
-      <workItem from="1667031391180" duration="2543000" />
+      <workItem from="1667031391180" duration="2620000" />
+      <workItem from="1667037500210" duration="343000" />
+      <workItem from="1667119290241" duration="3707000" />
+      <workItem from="1667142676937" duration="2970000" />
+      <workItem from="1667152758661" duration="1554000" />
+      <workItem from="1667154601568" duration="669000" />
+      <workItem from="1667196734399" duration="8032000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -146,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666889468680</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="данные из бд более-менее отображаются">
+      <created>1667033995257</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667033995257</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +213,7 @@
     <MESSAGE value="Немного накидала наработок, сильно ничего не меняла" />
     <MESSAGE value="Сделала открытие файла по кнопке" />
     <MESSAGE value="научилась доставать какие-то данные из бд" />
-    <option name="LAST_COMMIT_MESSAGE" value="научилась доставать какие-то данные из бд" />
+    <MESSAGE value="данные из бд более-менее отображаются" />
+    <option name="LAST_COMMIT_MESSAGE" value="данные из бд более-менее отображаются" />
   </component>
 </project>
