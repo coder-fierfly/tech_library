@@ -66,64 +66,12 @@ public class Controller extends DatabaseHandler implements Initializable {
                     effTree.getChildren().add(docTree);
                 }
             }
-            //TODO
-            //как-то написать сюды добавление следующих инструментов
         }
-//        TreeItem<String> branchItem1 = new TreeItem<>(airplane.get(0));
-//        TreeItem<String> branchItem2 = new TreeItem<>(airplane.get(1));
-
-
-        //третье вложение
-        TreeItem<String> leafItem1 = new TreeItem<>("эффективити 1(777)");
-        TreeItem<String> leafItem2 = new TreeItem<>("эффективити 2(777)");
-        TreeItem<String> leafItem3 = new TreeItem<>("эффективити 1(737)");
-        TreeItem<String> leafItem4 = new TreeItem<>("эффективити 2(737)");
-
-        File file = new File("C:\\Users\\lena\\Desktop\\1.pdf");
-        TreeItem<String> leafItem5 = new TreeItem<>("1");
-        TreeItem<String> leafItem6 = new TreeItem<>("2");
-        TreeItem<String> leafItem7 = new TreeItem<>("типо файл 3");
-        TreeItem<String> leafItem8 = new TreeItem<>("типо файл 4");
-        TreeItem<String> leafItem9 = new TreeItem<>("типо файл 5");
-        TreeItem<String> leafItem10 = new TreeItem<>("типо файл 6");
-        TreeItem<String> leafItem11 = new TreeItem<>("типо файл 7");
-        TreeItem<String> leafItem12 = new TreeItem<>("типо файл 8");
-
-        //описание что к чему относиться, что во что вкладывать
-        //toDO
-//        rootItem.getChildren().addAll(branchItem1, branchItem2);
-//
-//
-        //    branchItem1.getChildren().addAll(leafItem1, leafItem2);
-//        branchItem2.getChildren().addAll(leafItem3, leafItem4);
-
-        // leafItem1.getChildren().addAll(leafItem5, leafItem6);
-//        leafItem2.getChildren().addAll(leafItem8, leafItem9);
-//        leafItem3.getChildren().addAll(leafItem10, leafItem11);
-//        leafItem4.getChildren().addAll(leafItem12);
-
-//        TreeView<String> treeView = new TreeView<String>(rootItem);
-
-        // получаем модель выбора
-//        SelectionModel<TreeItem<String>> selectionModel = treeView.getSelectionModel();
-//        System.out.println(selectionModel.getSelectedItem());
-        //treeView.setShowRoot(false);
-
-//        stage.setScene(scene);
-//        stage.setTitle("TreeView in JavaFX");
-//        stage.show();
-
 
         //чтобы скрыть первоначальный элемент
         treeView.setShowRoot(false);
         this.treeView.setRoot(rootItem);
         this.drawFooter();
-      /*  selectionModel.selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>(){
-            public void changed(ObservableValue<? extends TreeItem<String>> changed,
-                                TreeItem<String> oldValue, TreeItem<String> newValue){
-                lable.setText("Selected: " + newValue.getValue());
-            }
-        });*/
     }
 
     public void selectTreeView() {
