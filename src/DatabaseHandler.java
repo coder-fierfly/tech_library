@@ -24,11 +24,11 @@ public class DatabaseHandler extends Configs {
         } else {
             System.out.println("Failed to make connection to database");
         }
-        System.out.println("DBDBDBDB");
-        ArrayList<String> ddd = findDoc("hol pol");
-        System.out.println("size 1 " + ddd.size());
-        System.out.println(ddd.get(0));
-        System.out.println("!!!!!!!!!!!!!!!!!!!!!");
+//        System.out.println("DBDBDBDB");
+//        ArrayList<String> ddd = findDoc("hol pol");
+//        System.out.println("size 1 " + ddd.size());
+//        System.out.println(ddd.get(0));
+//        System.out.println("!!!!!!!!!!!!!!!!!!!!!");
 //        ArrayList<String> dd = getDoc("effectivity_2");
 //        System.out.println("size 2 " + dd.size());
 //        System.out.println(dd.get(0));
@@ -166,6 +166,7 @@ public class DatabaseHandler extends Configs {
                     .append(Const.TABLE_TEXT).append(".").append(Const.DOC_ID)
                     .append(" WHERE to_tsvector(").append(Const.DOC_TEXT).append(") @@ to_tsquery('").append(scan).append("');");
             resultSet = statement.executeQuery(sel.toString());
+            System.out.println("!!!!!!!!!!");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -178,6 +179,7 @@ public class DatabaseHandler extends Configs {
             }
             try {
                 arrayList.add(resultSet.getString(1));
+                System.out.println(resultSet.getString(1));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

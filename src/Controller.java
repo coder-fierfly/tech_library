@@ -110,6 +110,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         this.okButton.setOnAction((event) -> {
             //если нет такого слова в книгах вывести сообщение об этом
             if (textArea.getText().length() < 50) {
+                findDoc(textArea.getText());
                 System.out.println("Input: " + textArea.getText());
             } else {
                 text.setText("Слово должно быть покороче");

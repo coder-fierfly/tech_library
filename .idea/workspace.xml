@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="получается вынимать эффективити и документы">
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="сделала функцию по поиска слова в тексте документа">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/help.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/help.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,7 @@
       <workItem from="1667152758661" duration="1554000" />
       <workItem from="1667154601568" duration="669000" />
       <workItem from="1667196734399" duration="9801000" />
-      <workItem from="1667217000445" duration="2917000" />
+      <workItem from="1667217000445" duration="4378000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -171,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667205224178</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="сделала функцию по поиска слова в тексте документа">
+      <created>1667220524678</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1667220524678</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -209,6 +217,7 @@
     <MESSAGE value="научилась доставать какие-то данные из бд" />
     <MESSAGE value="данные из бд более-менее отображаются" />
     <MESSAGE value="получается вынимать эффективити и документы" />
-    <option name="LAST_COMMIT_MESSAGE" value="получается вынимать эффективити и документы" />
+    <MESSAGE value="сделала функцию по поиска слова в тексте документа" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделала функцию по поиска слова в тексте документа" />
   </component>
 </project>
