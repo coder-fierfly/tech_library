@@ -13,15 +13,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
-//todo подумать как класть элементы из бд в дерево
 public class Controller extends DatabaseHandler implements Initializable {
-    public Label lable;
     @FXML
     private TextArea textArea;
     @FXML
@@ -42,9 +39,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        // действие на кнопку ok
 
-        // понять как добавить информацию из таблиц бд........
         TreeItem<String> rootItem = new TreeItem<>("Самолеты");
 
         // добавление картиночки
@@ -68,6 +63,9 @@ public class Controller extends DatabaseHandler implements Initializable {
             }
         }
 
+        // todo либо строить с дока и выше выше, либо все построить а когда дойду до дока отображать
+        // только нужное, например проверка на то есть ли children
+
         //чтобы скрыть первоначальный элемент
         treeView.setShowRoot(false);
         this.treeView.setRoot(rootItem);
@@ -78,10 +76,10 @@ public class Controller extends DatabaseHandler implements Initializable {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
 
         if (item != null) {
-            System.out.println(item.getValue());
-            //TODO переделать глупейшую проверку на цифру и сделать шо-то другое
+            //TODO переделать проверку на .pdf в конце
             if (item.getValue().matches("\\d.*")) {
                 openPdf("src/doc/" + item.getValue() + ".pdf");
+                treeView.getSelectionModel().clearSelection();
             }
         }
     }
@@ -106,18 +104,68 @@ public class Controller extends DatabaseHandler implements Initializable {
             }
         });
 
+        // действие на кнопку ok
         //подтверждение поиска слова по файлам
         this.okButton.setOnAction((event) -> {
-            //если нет такого слова в книгах вывести сообщение об этом
             if (textArea.getText().length() < 50) {
-                findDoc(textArea.getText());
-                System.out.println("Input: " + textArea.getText());
+                // убираю лишние пробелы, пробелы между словами заменяю на &
+                String srt = textArea.getText().trim().replaceAll("[ ]{1,}", " & ");
+                ArrayList<String> doc = findDocByText(srt);
+                if (srt.isEmpty()) {
+                    text.setText("Вы ничего не ввели");
+                } else if (doc.isEmpty()) {
+                    text.setText("По данному запросу ничего не нашлось");
+                } else {
+                    //TODO сделать сюда вывод нужных файлов
+                    text.setText("Выполняю запрос...");
+                    fileOutput(doc);
+                    text.setText("Запрос выполнен");
+                }
             } else {
                 text.setText("Слово должно быть покороче");
-                System.out.println("больше");
             }
-            // TODO если слово не найдено в файликах, то байбич
         });
+    }
+
+    private void fileOutput(ArrayList<String> doc) {
+        TreeItem<String> rootItem = new TreeItem<>("Самолеты");
+        // беру все самолеты из таблицы самолетов
+        ArrayList<String> airplane = getName("plane");
+
+        TreeItem<String> planeTree;
+        TreeItem<String> effTree;
+        TreeItem<String> docTree = null;
+        for (int i = 0; i < airplane.size(); i++) {
+            // самолет берем по id
+            planeTree = new TreeItem<>(airplane.get(i));
+            ArrayList<String> eff = getEff(i + 1);
+            // второе вложение - эффективити
+            for (int j = 0; j < eff.size(); j++) {
+                // беру эффективити по id вывожу имя эффективити
+                effTree = new TreeItem<>(eff.get(j));
+                // третье вложение - документ
+                for (int k = 0; k < doc.size(); k++) {
+                    if (eff.get(j).matches(getEff(doc.get(k)))) {
+                        docTree = new TreeItem<>(doc.get(k));
+                    }
+                    if (k == (doc.size() - 1) && docTree != null) {
+                        effTree.getChildren().add(docTree);
+                        if (effTree != null) {
+                            planeTree.getChildren().add(effTree);
+                        }
+                    }
+                }
+
+            }
+            if (docTree != null) {
+                rootItem.getChildren().add(planeTree);
+            }
+        }
+
+        //чтобы скрыть первоначальный элемент
+        //treeView.setShowRoot(false);
+        this.treeView.setRoot(rootItem);
+        this.drawFooter();
     }
 
     //открытие окошка с информацией
