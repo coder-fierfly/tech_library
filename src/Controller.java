@@ -2,8 +2,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.sql.*;
 
 import javafx.fxml.FXML;
@@ -19,6 +18,8 @@ import javafx.stage.Stage;
 
 
 public class Controller extends DatabaseHandler implements Initializable {
+    @FXML
+    private Button reset;
     @FXML
     private TextArea textArea;
     @FXML
@@ -40,8 +41,24 @@ public class Controller extends DatabaseHandler implements Initializable {
             throw new RuntimeException(e);
         }
 
-        TreeItem<String> rootItem = new TreeItem<>("Самолеты");
+        downloadTree();
+        this.drawFooter();
+    }
 
+    public void selectTreeView() {
+        TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
+
+        if (item != null) {
+            //TODO переделать проверку на .pdf в конце и убрать + .pdf
+            if (item.getValue().matches("\\d.*")) {
+                openPdf("src/doc/" + item.getValue() + ".pdf");
+                treeView.getSelectionModel().clearSelection();
+            }
+        }
+    }
+
+    private void downloadTree() {
+        TreeItem<String> rootItem = new TreeItem<>("Самолеты");
         // добавление картиночки
         // TreeItem<String> rootItem = new TreeItem<>("Files", new ImageView(new Image("Folder_Icon.png")));
         ArrayList<String> airplane = getName("plane");
@@ -49,12 +66,12 @@ public class Controller extends DatabaseHandler implements Initializable {
         for (int i = 0; i < airplane.size(); i++) {
             TreeItem<String> planeTree = new TreeItem<>(airplane.get(i));
             rootItem.getChildren().add(planeTree);
-            ArrayList<String> eff = getEff(i + 1);
+            ArrayList<String> eff = getEffNameByPlaneId(i + 1);
             // второе вложение - эффективити
             for (int j = 0; j < eff.size(); j++) {
                 TreeItem<String> effTree = new TreeItem<>(eff.get(j));
                 planeTree.getChildren().add(effTree);
-                ArrayList<String> doc = getDoc(eff.get(j));
+                ArrayList<String> doc = getDocByEffName(eff.get(j));
                 // третье вложение - документ
                 for (int k = 0; k < doc.size(); k++) {
                     TreeItem<String> docTree = new TreeItem<>(doc.get(k));
@@ -63,25 +80,9 @@ public class Controller extends DatabaseHandler implements Initializable {
             }
         }
 
-        // todo либо строить с дока и выше выше, либо все построить а когда дойду до дока отображать
-        // только нужное, например проверка на то есть ли children
-
         //чтобы скрыть первоначальный элемент
         treeView.setShowRoot(false);
         this.treeView.setRoot(rootItem);
-        this.drawFooter();
-    }
-
-    public void selectTreeView() {
-        TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
-
-        if (item != null) {
-            //TODO переделать проверку на .pdf в конце
-            if (item.getValue().matches("\\d.*")) {
-                openPdf("src/doc/" + item.getValue() + ".pdf");
-                treeView.getSelectionModel().clearSelection();
-            }
-        }
     }
 
     // открытие файла в браузере
@@ -108,64 +109,94 @@ public class Controller extends DatabaseHandler implements Initializable {
         //подтверждение поиска слова по файлам
         this.okButton.setOnAction((event) -> {
             if (textArea.getText().length() < 50) {
-                // убираю лишние пробелы, пробелы между словами заменяю на &
-                String srt = textArea.getText().trim().replaceAll("[ ]{1,}", " & ");
-                ArrayList<String> doc = findDocByText(srt);
+                // Убираю лишние пробелы до и после запроса. Пробелы между словами, заменяю на &
+                String srt = textArea.getText().trim().replaceAll(" {1,}", " & ");
+                Map<Integer, String> doc = findDocByText(srt);
+
                 if (srt.isEmpty()) {
                     text.setText("Вы ничего не ввели");
                 } else if (doc.isEmpty()) {
                     text.setText("По данному запросу ничего не нашлось");
                 } else {
-                    //TODO сделать сюда вывод нужных файлов
                     text.setText("Выполняю запрос...");
                     fileOutput(doc);
                     text.setText("Запрос выполнен");
                 }
             } else {
-                text.setText("Слово должно быть покороче");
+                text.setText("Запрос слишком длинный");
             }
+        });
+
+        this.reset.setOnAction((event) -> {
+            textArea.setText(null);
+            text.setText("Выполняю...");
+            downloadTree();
+            text.setText("Введите слово для поиска");
         });
     }
 
-    private void fileOutput(ArrayList<String> doc) {
-        TreeItem<String> rootItem = new TreeItem<>("Самолеты");
-        // беру все самолеты из таблицы самолетов
-        ArrayList<String> airplane = getName("plane");
-
+    private void fileOutput(Map<Integer, String> docMap) {
         TreeItem<String> planeTree;
         TreeItem<String> effTree;
-        TreeItem<String> docTree = null;
-        for (int i = 0; i < airplane.size(); i++) {
-            // самолет берем по id
-            planeTree = new TreeItem<>(airplane.get(i));
-            ArrayList<String> eff = getEff(i + 1);
-            // второе вложение - эффективити
-            for (int j = 0; j < eff.size(); j++) {
-                // беру эффективити по id вывожу имя эффективити
-                effTree = new TreeItem<>(eff.get(j));
-                // третье вложение - документ
-                for (int k = 0; k < doc.size(); k++) {
-                    if (eff.get(j).matches(getEff(doc.get(k)))) {
-                        docTree = new TreeItem<>(doc.get(k));
-                    }
-                    if (k == (doc.size() - 1) && docTree != null) {
-                        effTree.getChildren().add(docTree);
-                        if (effTree != null) {
-                            planeTree.getChildren().add(effTree);
+        TreeItem<String> docTree;
+
+        Iterator<Map.Entry<Integer, String>> itr = docMap.entrySet().iterator();
+        Map<Integer, String> effMap = new HashMap<>();
+        Map<Integer, String> planeMap = new HashMap<>();
+        Set<String> effName = new HashSet<>();
+        while (itr.hasNext()) {
+            Map.Entry<Integer, String> entry = itr.next();
+            // get value
+            docTree = new TreeItem<>(entry.getValue());
+            // без повторений добавляются имена эфф
+            String str = getEffNameIdByDocId(entry.getKey()).str;
+            int id = getEffNameIdByDocId(entry.getKey()).num;
+            effMap.put(id, str);
+        }
+        Iterator<Map.Entry<Integer, String>> it = effMap.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry<Integer, String> entry = it.next();
+            planeMap.put(getPlaneByEff(entry.getKey()).num, getPlaneByEff(entry.getKey()).str);
+        }
+
+        TreeItem<String> rootItem = new TreeItem<>("Самолеты");
+        ArrayList<String> airplane = getName("plane");
+
+        Iterator<Map.Entry<Integer, String>> planeIt = planeMap.entrySet().iterator();
+        while (planeIt.hasNext()) {
+            Map.Entry<Integer, String> planeEntry = planeIt.next();
+            planeTree = new TreeItem<>(planeEntry.getValue());
+            rootItem.getChildren().add(planeTree);
+            Iterator<Map.Entry<Integer, String>> effIt = effMap.entrySet().iterator();
+
+            while (effIt.hasNext()) {
+                Map.Entry<Integer, String> effEnt = effIt.next();
+                ArrayList<Integer> effArray = getEffIdByPlaneId(planeEntry.getKey());
+                for (int i = 0; i < effArray.size(); i++) {
+                    if (effArray.get(i).equals(effEnt.getKey())) {
+                        effTree = new TreeItem<>(effEnt.getValue());
+                        planeTree.getChildren().add(effTree);
+
+                        Iterator<Map.Entry<Integer, String>> docIt = docMap.entrySet().iterator();
+
+                        while (docIt.hasNext()) {
+                            Map.Entry<Integer, String> docEnt = docIt.next();
+                            ArrayList<Integer> docArray = getDocIdByEffId(effEnt.getKey());
+                            for (int j = 0; j < docArray.size(); j++) {
+                                if (docArray.get(j).equals(docEnt.getKey())) {
+                                    docTree = new TreeItem<>(docEnt.getValue());
+                                    effTree.getChildren().add(docTree);
+                                }
+                            }
                         }
                     }
                 }
 
-            }
-            if (docTree != null) {
-                rootItem.getChildren().add(planeTree);
+                //чтобы скрыть первоначальный элемент
+                treeView.setShowRoot(false);
+                this.treeView.setRoot(rootItem);
             }
         }
-
-        //чтобы скрыть первоначальный элемент
-        //treeView.setShowRoot(false);
-        this.treeView.setRoot(rootItem);
-        this.drawFooter();
     }
 
     //открытие окошка с информацией

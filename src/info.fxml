@@ -5,10 +5,10 @@
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="405.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/11.0.1"
+<AnchorPane prefHeight="405.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="InfoController">
     <Text layoutX="37.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Информация о приложении"
-          wrappingWidth="506.60150146484375">
+          textAlignment="CENTER" wrappingWidth="506.60150146484375">
         <font>
             <Font name="Segoe UI Semibold" size="20.0"/>
         </font>
@@ -29,46 +29,47 @@
             </LinearGradient>
         </fill>
     </Text>
-    <Text layoutX="37.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Какое-то описание программы"
-          textAlignment="JUSTIFY" wrappingWidth="539.6015014648438">
+    <Text layoutX="37.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Данная программа написана в рамках курсовой работы. По всем вопросам и предложениям обращайтесь на почту andrianovalena1@gmail.com или телеграмм @ffiefly"
+          wrappingWidth="532.6015014648438">
         <font>
-            <Font name="Segoe UI Semilight" size="13.0"/>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
     <Text layoutX="37.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Разработчик:"
           wrappingWidth="214.13671875">
         <font>
-            <Font name="Segoe UI Semilight" size="13.0"/>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
     <Text layoutX="37.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Андрианова Елена">
         <font>
-            <Font name="Segoe UI Semilight" size="13.0"/>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
     <Text layoutX="37.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Университет: МАИ">
         <font>
-            <Font name="Segoe UI Semilight" size="13.0"/>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
     <Text layoutX="37.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
         <font>
-            <Font name="Segoe UI Semilight" size="13.0"/>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
     <Text layoutX="37.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
         <font>
-            <Font name="Segoe UI Semilight" size="13.0"/>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
     <Text layoutX="37.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
         <font>
-            <Font name="Segoe UI Semilight" size="13.0"/>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
     <Text layoutX="37.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Год создания программы: 2022">
         <font>
-            <Font name="Segoe UI Semilight" size="13.0"/>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
 </AnchorPane>

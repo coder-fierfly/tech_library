@@ -1,5 +1,7 @@
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
@@ -57,7 +59,7 @@ public class DatabaseHandler extends Configs {
         return name;
     }
 
-    public String getPlaneByEff(String eff){
+    public Storage getPlaneByEff(int i) {
         Statement statement = null;
         try {
             statement = dbConnection.createStatement();
@@ -67,16 +69,23 @@ public class DatabaseHandler extends Configs {
         ResultSet resultSet = null;
         try {
             StringBuilder sel = new StringBuilder();
-            sel.append("SELECT ").append(Const.PLANE_NAME).append(" FROM ").append(Const.TABLE_PLANE).append(" JOIN ")
-                    .append(Const.TABLE_PLANE_EFF).append(" ON ").append(Const.TABLE_PLANE).append(".").append(Const.PLANE_ID)
-                    .append(" = ")
+
+//           SELECT plane_name, plane.plane_id
+//     FROM plane
+//      JOIN plane_effectivity ON plane.plane_id = plane_effectivity.plane_id
+//--      JOIN effectivity e on e.effectivity_id = plane_effectivity.effectivity_id
+//     WHERE effectivity_id = '1'
+            sel.append("SELECT ").append(Const.PLANE_NAME).append(", ").append(Const.TABLE_PLANE).append(".")
+                    .append(Const.PLANE_ID).append(" FROM ").append(Const.TABLE_PLANE).append(" JOIN ")
+                    .append(Const.TABLE_PLANE_EFF).append(" ON ").append(Const.TABLE_PLANE).append(".")
+                    .append(Const.PLANE_ID).append(" = ")
                     .append(Const.TABLE_PLANE_EFF).append(".").append(Const.PLANE_ID)
-                    .append(" WHERE ").append(Const.EFF_NAME).append(" = '").append(eff).append("'");
+                    .append(" WHERE ").append(Const.EFF_ID).append(" = '").append(i).append("'");
             resultSet = statement.executeQuery(sel.toString());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        String name = null;
+        Storage stor = null;
         while (true) {
             try {
                 if (!resultSet.next()) break;
@@ -84,16 +93,17 @@ public class DatabaseHandler extends Configs {
                 throw new RuntimeException(e);
             }
             try {
-                name = resultSet.getString(1);
+                stor = (new Storage(resultSet.getInt(2), resultSet.getString(1)));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        return name;
+        return stor;
     }
 
+
     // по id документа вынимаю эффективити
-    public ArrayList<String> getEff(int id) {
+    public ArrayList<String> getEffNameByPlaneId(int id) {
         Statement statement = null;
         try {
             statement = dbConnection.createStatement();
@@ -131,9 +141,47 @@ public class DatabaseHandler extends Configs {
         return name;
     }
 
+    public ArrayList<Integer> getEffIdByPlaneId(int id) {
+        Statement statement = null;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ResultSet resultSet = null;
+        try {
+            //SELECT effectivity_name
+            //FROM effectivity JOIN plane_effectivity ON effectivity.effectivity_id = plane_effectivity.effectivity_id
+            //WHERE plane_id = '2'
+            StringBuilder sel = new StringBuilder();
+            sel.append("SELECT ").append(Const.TABLE_PLANE_EFF).append(".").append(Const.EFF_ID).append(" FROM ").append(Const.TABLE_EFF).append(" JOIN ")
+                    .append(Const.TABLE_PLANE_EFF).append(" ON ").append(Const.TABLE_EFF).append(".").append(Const.EFF_ID)
+                    .append(" = ")
+                    .append(Const.TABLE_PLANE_EFF).append(".").append(Const.EFF_ID)
+                    .append(" WHERE ").append(Const.PLANE_ID).append(" = '").append(id).append("'");
+            resultSet = statement.executeQuery(sel.toString());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<Integer> name = new ArrayList<>();
+        while (true) {
+            try {
+                if (!resultSet.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                name.add(resultSet.getInt(1));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return name;
+    }
+
     // по имени документа получаю эффеттивити
     //TODO проверирть работоспособность
-    public String getEff(String str) {
+    public Storage getEffNameIdByDocId(int id) {
         Statement statement = null;
         try {
             statement = dbConnection.createStatement();
@@ -147,18 +195,20 @@ public class DatabaseHandler extends Configs {
 
 
             StringBuilder sel = new StringBuilder();
-            sel.append("SELECT ").append(Const.EFF_NAME).append(" FROM ").append(Const.TABLE_EFF).append(" JOIN ")
+            sel.append("SELECT ").append(Const.EFF_NAME).append(", ").append(Const.TABLE_EFF).append(".").append(Const.EFF_ID).append(" FROM ").append(Const.TABLE_EFF).append(" JOIN ")
                     .append(Const.TABLE_DOC_EFF).append(" ON ").append(Const.TABLE_EFF).append(".").append(Const.EFF_ID)
                     .append(" = ")
                     .append(Const.TABLE_DOC_EFF).append(".").append(Const.EFF_ID).append(" JOIN ")
                     .append(Const.TABLE_DOC).append(" ON ").append(Const.TABLE_DOC).append(".").append(Const.DOC_ID)
                     .append(" = ").append(Const.TABLE_DOC_EFF).append(".").append(Const.DOC_ID)
-                    .append(" WHERE ").append(Const.DOC_NAME).append(" = '").append(str).append("'");
+                    .append(" WHERE ").append(Const.TABLE_DOC).append(".").append(Const.DOC_ID)
+                    .append(" = '").append(id).append("'");
             resultSet = statement.executeQuery(sel.toString());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        String name = null;
+        Storage stor = null;
+        Map<Integer, String> name = new HashMap<>();
         while (true) {
             try {
                 if (!resultSet.next()) break;
@@ -166,16 +216,16 @@ public class DatabaseHandler extends Configs {
                 throw new RuntimeException(e);
             }
             try {
-                name = resultSet.getString(1);
+                stor = (new Storage(resultSet.getInt(2), resultSet.getString(1)));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        return name;
+        return stor;
     }
 
     // файл по имени эффективити
-    public ArrayList<String> getDoc(String name) {
+    public ArrayList<String> getDocByEffName(String name) {
         Statement statement = null;
         try {
             statement = dbConnection.createStatement();
@@ -212,8 +262,7 @@ public class DatabaseHandler extends Configs {
         return arrayList;
     }
 
-    //нахождение файла по слову из него
-    public ArrayList<String> findDocByText(String scan) {
+    public ArrayList<Integer> getDocIdByEffId(int num) {
         Statement statement = null;
         try {
             statement = dbConnection.createStatement();
@@ -223,7 +272,48 @@ public class DatabaseHandler extends Configs {
         ResultSet resultSet = null;
         try {
             StringBuilder sel = new StringBuilder();
-            sel.append("SELECT ").append(Const.DOC_NAME).append(" FROM ").append(Const.TABLE_TEXT).append(" JOIN ")
+            // SELECT doc.doc_id
+            //FROM doc
+            //JOIN doc_effectivity ON doc.doc_id = doc_effectivity.doc_id
+            //WHERE effectivity_id = 'n'
+            sel.append("SELECT ").append(Const.TABLE_DOC).append(".").append(Const.DOC_ID).append(" FROM ")
+                    .append(Const.TABLE_DOC).append(" JOIN ")
+                    .append(Const.TABLE_DOC_EFF).append(" ON ").append(Const.TABLE_DOC).append(".").append(Const.DOC_ID)
+                    .append(" = ")
+                    .append(Const.TABLE_DOC_EFF).append(".").append(Const.DOC_ID)
+                    .append(" WHERE ").append(Const.EFF_ID).append(" = '").append(num).append("'");
+            resultSet = statement.executeQuery(sel.toString());
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        while (true) {
+            try {
+                if (!resultSet.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                arrayList.add(resultSet.getInt(1));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return arrayList;
+    }
+
+    //нахождение файла по слову из него
+    public Map<Integer, String> findDocByText(String scan) {
+        Statement statement = null;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ResultSet resultSet = null;
+        try {
+            StringBuilder sel = new StringBuilder();
+            sel.append("SELECT ").append(Const.TABLE_DOC).append(".").append(Const.DOC_ID).append(", ").append(Const.DOC_NAME).append(" FROM ").append(Const.TABLE_TEXT).append(" JOIN ")
                     .append(Const.TABLE_DOC).append(" ON ").append(Const.TABLE_DOC).append(".").append(Const.DOC_ID)
                     .append(" = ")
                     .append(Const.TABLE_TEXT).append(".").append(Const.DOC_ID)
@@ -232,7 +322,8 @@ public class DatabaseHandler extends Configs {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ArrayList<String> arrayList = new ArrayList<>();
+        Map<Integer, String> map = new HashMap<>();
+        // ArrayList<String> arrayList = new ArrayList<>();
         while (true) {
             try {
                 if (!resultSet.next()) break;
@@ -240,11 +331,11 @@ public class DatabaseHandler extends Configs {
                 throw new RuntimeException(e);
             }
             try {
-                arrayList.add(resultSet.getString(1));
+                map.put(resultSet.getInt(1), resultSet.getString(2));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        return arrayList;
+        return map;
     }
 }
