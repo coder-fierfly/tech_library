@@ -6,7 +6,7 @@ import java.util.Map;
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
 
-    public Connection getDbConnection() throws SQLException {
+    public void getDbConnection() throws SQLException {
         try {
             Class.forName("org.postgresql.Driver");
         } catch (ClassNotFoundException e) {
@@ -26,7 +26,6 @@ public class DatabaseHandler extends Configs {
         } else {
             System.out.println("Failed to make connection to database");
         }
-        return dbConnection;
     }
 
     //может потом переписать для общего досавания или ни....
@@ -37,7 +36,7 @@ public class DatabaseHandler extends Configs {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         try {
             resultSet = statement.executeQuery("SELECT * FROM " + table);
         } catch (SQLException e) {
@@ -60,13 +59,13 @@ public class DatabaseHandler extends Configs {
     }
 
     public Storage getPlaneByEff(int i) {
-        Statement statement = null;
+        Statement statement;
         try {
             statement = dbConnection.createStatement();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         try {
             StringBuilder sel = new StringBuilder();
 
@@ -104,13 +103,13 @@ public class DatabaseHandler extends Configs {
 
     // по id документа вынимаю эффективити
     public ArrayList<String> getEffNameByPlaneId(int id) {
-        Statement statement = null;
+        Statement statement;
         try {
             statement = dbConnection.createStatement();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ResultSet resultSet = null;
+        ResultSet resultSet;
         try {
             //SELECT effectivity_name
             //FROM effectivity JOIN plane_effectivity ON effectivity.effectivity_id = plane_effectivity.effectivity_id
@@ -163,24 +162,9 @@ public class DatabaseHandler extends Configs {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ArrayList<Integer> name = new ArrayList<>();
-        while (true) {
-            try {
-                if (!resultSet.next()) break;
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                name.add(resultSet.getInt(1));
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return name;
+        return resultToArray(resultSet);
     }
 
-    // по имени документа получаю эффеттивити
-    //TODO проверирть работоспособность
     public Storage getEffNameIdByDocId(int id) {
         Statement statement = null;
         try {
@@ -190,10 +174,6 @@ public class DatabaseHandler extends Configs {
         }
         ResultSet resultSet = null;
         try {
-            //TODO
-            // JOIN doc d on d.doc_id = doc_effectivity.doc_id
-
-
             StringBuilder sel = new StringBuilder();
             sel.append("SELECT ").append(Const.EFF_NAME).append(", ").append(Const.TABLE_EFF).append(".").append(Const.EFF_ID).append(" FROM ").append(Const.TABLE_EFF).append(" JOIN ")
                     .append(Const.TABLE_DOC_EFF).append(" ON ").append(Const.TABLE_EFF).append(".").append(Const.EFF_ID)
@@ -207,7 +187,7 @@ public class DatabaseHandler extends Configs {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        Storage stor = null;
+        Storage storage = null;
         Map<Integer, String> name = new HashMap<>();
         while (true) {
             try {
@@ -216,12 +196,12 @@ public class DatabaseHandler extends Configs {
                 throw new RuntimeException(e);
             }
             try {
-                stor = (new Storage(resultSet.getInt(2), resultSet.getString(1)));
+                storage = (new Storage(resultSet.getInt(2), resultSet.getString(1)));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
         }
-        return stor;
+        return storage;
     }
 
     // файл по имени эффективити
@@ -263,7 +243,7 @@ public class DatabaseHandler extends Configs {
     }
 
     public ArrayList<Integer> getDocIdByEffId(int num) {
-        Statement statement = null;
+        Statement statement;
         try {
             statement = dbConnection.createStatement();
         } catch (SQLException e) {
@@ -272,10 +252,10 @@ public class DatabaseHandler extends Configs {
         ResultSet resultSet = null;
         try {
             StringBuilder sel = new StringBuilder();
-            // SELECT doc.doc_id
-            //FROM doc
-            //JOIN doc_effectivity ON doc.doc_id = doc_effectivity.doc_id
-            //WHERE effectivity_id = 'n'
+       /*   SELECT doc.doc_id
+            FROM doc
+            JOIN doc_effectivity ON doc.doc_id = doc_effectivity.doc_id
+            WHERE effectivity_id = 'n' */
             sel.append("SELECT ").append(Const.TABLE_DOC).append(".").append(Const.DOC_ID).append(" FROM ")
                     .append(Const.TABLE_DOC).append(" JOIN ")
                     .append(Const.TABLE_DOC_EFF).append(" ON ").append(Const.TABLE_DOC).append(".").append(Const.DOC_ID)
@@ -286,20 +266,7 @@ public class DatabaseHandler extends Configs {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        while (true) {
-            try {
-                if (!resultSet.next()) break;
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            try {
-                arrayList.add(resultSet.getInt(1));
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return arrayList;
+        return resultToArray(resultSet);
     }
 
     //нахождение файла по слову из него
@@ -323,7 +290,6 @@ public class DatabaseHandler extends Configs {
             throw new RuntimeException(e);
         }
         Map<Integer, String> map = new HashMap<>();
-        // ArrayList<String> arrayList = new ArrayList<>();
         while (true) {
             try {
                 if (!resultSet.next()) break;
@@ -337,5 +303,22 @@ public class DatabaseHandler extends Configs {
             }
         }
         return map;
+    }
+
+    public ArrayList<Integer> resultToArray(ResultSet resultSet){
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        while (true) {
+            try {
+                if (!resultSet.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                arrayList.add(resultSet.getInt(1));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return arrayList;
     }
 }

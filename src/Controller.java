@@ -49,7 +49,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
 
         if (item != null) {
-            //TODO переделать проверку на .pdf в конце и убрать + .pdf
+            //TODO переделать проверку на .pdf в конце и убрать (... + ".pdf")
             if (item.getValue().matches("\\d.*")) {
                 openPdf("src/doc/" + item.getValue() + ".pdf");
                 treeView.getSelectionModel().clearSelection();
@@ -104,6 +104,12 @@ public class Controller extends DatabaseHandler implements Initializable {
                 var3.printStackTrace();
             }
         });
+        this.reset.setOnAction((event) -> {
+            textArea.setText("");
+            text.setText("Выполняю...");
+            downloadTree();
+            text.setText("Введите слово для поиска");
+        });
 
         // действие на кнопку ok
         //подтверждение поиска слова по файлам
@@ -126,13 +132,6 @@ public class Controller extends DatabaseHandler implements Initializable {
                 text.setText("Запрос слишком длинный");
             }
         });
-
-        this.reset.setOnAction((event) -> {
-            textArea.setText(null);
-            text.setText("Выполняю...");
-            downloadTree();
-            text.setText("Введите слово для поиска");
-        });
     }
 
     private void fileOutput(Map<Integer, String> docMap) {
@@ -143,7 +142,6 @@ public class Controller extends DatabaseHandler implements Initializable {
         Iterator<Map.Entry<Integer, String>> itr = docMap.entrySet().iterator();
         Map<Integer, String> effMap = new HashMap<>();
         Map<Integer, String> planeMap = new HashMap<>();
-        Set<String> effName = new HashSet<>();
         while (itr.hasNext()) {
             Map.Entry<Integer, String> entry = itr.next();
             // get value
@@ -160,7 +158,6 @@ public class Controller extends DatabaseHandler implements Initializable {
         }
 
         TreeItem<String> rootItem = new TreeItem<>("Самолеты");
-        ArrayList<String> airplane = getName("plane");
 
         Iterator<Map.Entry<Integer, String>> planeIt = planeMap.entrySet().iterator();
         while (planeIt.hasNext()) {
