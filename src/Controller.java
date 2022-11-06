@@ -40,7 +40,6 @@ public class Controller extends DatabaseHandler implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
         downloadTree();
         this.drawFooter();
     }
@@ -144,7 +143,6 @@ public class Controller extends DatabaseHandler implements Initializable {
         Map<Integer, String> planeMap = new HashMap<>();
         while (itr.hasNext()) {
             Map.Entry<Integer, String> entry = itr.next();
-            // get value
             docTree = new TreeItem<>(entry.getValue());
             // без повторений добавляются имена эфф
             String str = getEffNameIdByDocId(entry.getKey()).str;
@@ -199,7 +197,7 @@ public class Controller extends DatabaseHandler implements Initializable {
     //открытие окошка с информацией
     @FXML
     private void infoOpen() throws IOException {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("info.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/info.fxml"));
         Parent root = (Parent) loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

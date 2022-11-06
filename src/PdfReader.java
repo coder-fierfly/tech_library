@@ -3,14 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
-import org.apache.pdfbox.text.PDFTextStripper;
-import org.apache.pdfbox.text.PDFTextStripperByArea;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.Objects;
 
@@ -23,9 +16,9 @@ import java.util.Objects;
 */
 
 
-public class PDFViewTest extends Application {
+public class PdfReader extends Application {
 
-    public PDFViewTest() {
+    public PdfReader() {
     }
 
     @Override
@@ -50,7 +43,7 @@ public class PDFViewTest extends Application {
 //            }
 //        }
 
-        Parent root = (Parent) FXMLLoader.load((URL) Objects.requireNonNull(this.getClass().getResource("help.fxml")));
+        Parent root = (Parent) FXMLLoader.load((URL) Objects.requireNonNull(this.getClass().getResource("fx/library.fxml")));
 
         Scene scene = new Scene(root);
 
@@ -104,7 +97,7 @@ public class PDFViewTest extends Application {
 //import javafx.stage.FileChooser.ExtensionFilter;
 //import javafx.stage.Stage;
 //
-//public class PDFViewTest extends Application {
+//public class PdfReader extends Application {
 //
 //    @Override
 //    public void start (final Stage primaryStage)  {
