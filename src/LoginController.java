@@ -4,8 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ public class LoginController {
     @FXML private Button guest;
 
     @FXML private Button buttonReg;
-    @FXML private javafx.scene.text.Text textReg;
+    @FXML private Text textReg;
     @FXML private TextField user;
     @FXML private TextField password;
     @FXML private Button loginButton;
