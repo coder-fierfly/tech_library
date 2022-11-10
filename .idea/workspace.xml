@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="начала делать уровни пользователей">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RegController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/fx/reg.fxml" afterDir="false" />
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="сделала регистрацию, надо теперь прикрепить ее к бд">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginDemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginDemoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PdfReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PdfReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/1.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/1 doc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/2 nnn.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/2 doc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/library.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/library.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fx/reg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/reg.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +151,7 @@
       <workItem from="1668017826128" duration="2722000" />
       <workItem from="1668066758404" duration="3728000" />
       <workItem from="1668070608465" duration="1101000" />
-      <workItem from="1668075045119" duration="1807000" />
+      <workItem from="1668075045119" duration="6574000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -260,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667749124887</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="сделала регистрацию, надо теперь прикрепить ее к бд">
+      <created>1668077213648</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668077213648</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -303,6 +301,7 @@
     <MESSAGE value="переделала все ошибки" />
     <MESSAGE value="убрала повторения" />
     <MESSAGE value="начала делать уровни пользователей" />
-    <option name="LAST_COMMIT_MESSAGE" value="начала делать уровни пользователей" />
+    <MESSAGE value="сделала регистрацию, надо теперь прикрепить ее к бд" />
+    <option name="LAST_COMMIT_MESSAGE" value="сделала регистрацию, надо теперь прикрепить ее к бд" />
   </component>
 </project>

@@ -243,7 +243,7 @@ public class DatabaseHandler extends Configs {
     }
 
     public ArrayList<Integer> getDocIdByEffId(int num) {
-        Statement statement;
+        Statement statement = null;
         try {
             statement = dbConnection.createStatement();
         } catch (SQLException e) {
@@ -305,7 +305,28 @@ public class DatabaseHandler extends Configs {
         return map;
     }
 
-    public ArrayList<Integer> resultToArray(ResultSet resultSet){
+    public void addNewUser(String name, String surname, String login, String pas) {
+        Statement statement = null;
+        System.out.println("addNewUser");
+        try {
+            System.out.println("ну ию..");
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            System.out.println("д пошел ты со своимим ошибками!!!!!!!!!!!!");
+            throw new RuntimeException(e);
+        }
+        String insert;
+        insert = "INSERT INTO " + Const.TABLE_USERS + "(" + Const.USER_NAME + "," + Const.USER_SURNAME + ","
+                + Const.USER_LOG + "," + Const.USER_PASS + "," + Const.USER_ADMIN + ")" + "VALUES('"  + name + "','"
+        + surname + "','" + login + "','" + pas + "'," + "false" +")";
+        try {
+            int rows = statement.executeUpdate(insert);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public ArrayList<Integer> resultToArray(ResultSet resultSet) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         while (true) {
             try {
