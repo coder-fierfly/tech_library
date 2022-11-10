@@ -1,3 +1,4 @@
+/*
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,13 +8,14 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.Objects;
 
-// TODO сделать пользователя...
+*/
 /* варики:
          - как минимум можно сделать зарегистрированного пользователя и модера/админа
 - сделать для зареганного пользователя свою "библиотеку"
 - документы могут открывать только зарегистрированные пользователи
 - модератор может добавлять доки, а админ может все
-*/
+*//*
+
 
 
 public class PdfReader extends Application {
@@ -43,13 +45,13 @@ public class PdfReader extends Application {
 //            }
 //        }
 
-        Parent root = (Parent) FXMLLoader.load((URL) Objects.requireNonNull(this.getClass().getResource("fx/library.fxml")));
-
-        Scene scene = new Scene(root);
-
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("PDF simple viewer by PDFBox");
-        primaryStage.show();
+//        Parent root = (Parent) FXMLLoader.load((URL) Objects.requireNonNull(this.getClass().getResource("fx/library.fxml")));
+//
+//        Scene scene = new Scene(root);
+//
+//        primaryStage.setScene(scene);
+//        primaryStage.setTitle("PDF simple viewer by PDFBox");
+//        primaryStage.show();
 
 
 //
@@ -139,3 +141,4 @@ public class PdfReader extends Application {
 //        launch(args);
 //    }
 //}
+*/

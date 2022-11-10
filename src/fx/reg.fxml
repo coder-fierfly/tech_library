@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="350.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegController">
+
+    <children>
+        <TextField fx:id="user" layoutX="169.0" layoutY="117.0" prefHeight="25.0" prefWidth="268.0" promptText="Логин"/>
+        <TextField fx:id="password" layoutX="170.0" layoutY="162.0" prefHeight="25.0" prefWidth="268.0"
+                   promptText="Пароль"/>
+        <Text fx:id="textRegError" layoutX="220.0" layoutY="269.0" strokeWidth="0.0" text=""/>
+        <Button fx:id="buttonReg" layoutX="189.0" layoutY="290.0" mnemonicParsing="false" text="Регистрация"/>
+        <TextField fx:id="name" layoutX="169.0" layoutY="29.0" prefHeight="25.0" prefWidth="268.0" promptText="Имя"/>
+        <TextField fx:id="surname" layoutX="169.0" layoutY="72.0" prefHeight="25.0" prefWidth="268.0"
+                   promptText="Фамилия"/>
+        <TextField fx:id="passwordCheck" layoutX="170.0" layoutY="202.0" prefHeight="25.0" prefWidth="268.0"
+                   promptText="Повтор пароля"/>
+        <Text layoutX="30.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Имя:"
+              wrappingWidth="35.44921875">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+        <Text layoutX="31.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия:">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+        <Text layoutX="30.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Логин:">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+        <Text layoutX="26.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль:" wrappingWidth="69.0">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+        <Text layoutX="26.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Повторите пароль:"
+              wrappingWidth="130.57142857142856">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

@@ -9,7 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-/* Main application class for the login demo application */
+/* TODO сделать 3 пользователей
+  варики:
+- как минимум можно сделать зарегистрированного пользователя и модера/админа
+- сделать для зареганного пользователя свою "библиотеку"
+- документы могут открывать только зарегистрированные пользователи
+- модератор может добавлять доки, а админ может все
+*/
 public class LoginDemoApplication extends Application {
     public static void main(String[] args) {
         launch(args);
@@ -21,15 +27,8 @@ public class LoginDemoApplication extends Application {
 
         LoginManager loginManager = new LoginManager(scene);
         loginManager.showLoginScreen();
-
         stage.setScene(scene);
         stage.show();
-
-
-        Parent root = (Parent) FXMLLoader.load((URL) Objects.requireNonNull(this.getClass().getResource("fx/login.fxml")));
-
-        //Scene scene = new Scene(root);
-
         stage.setScene(scene);
         stage.show();
     }

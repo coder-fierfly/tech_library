@@ -4,40 +4,39 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="505.0" prefWidth="720.0" style="-fx-background-color: #818791;"
-            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+<AnchorPane prefHeight="505.0" prefWidth="720.0" style="-fx-background-color: #818791;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
-        <TreeView fx:id="treeView" layoutX="222.0" layoutY="13.0" onContextMenuRequested="#selectTreeView"
-                  onMouseClicked="#selectTreeView" prefHeight="478.0" prefWidth="469.0" AnchorPane.bottomAnchor="14.0"
-                  AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="13.0"/>
-        <Button fx:id="info" layoutX="14.0" layoutY="460.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="60.0"
-                text="Info" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0">
+        <TreeView fx:id="treeView" layoutX="222.0" layoutY="13.0" onContextMenuRequested="#selectTreeView" onMouseClicked="#selectTreeView" prefHeight="478.0" prefWidth="469.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="13.0" />
+        <Button fx:id="info" layoutX="14.0" layoutY="460.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="60.0" text="Info" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0">
             <font>
-                <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
+                <Font name="Berlin Sans FB Demi Bold" size="13.0" />
             </font>
         </Button>
-        <TextArea fx:id="textArea" layoutX="14.0" layoutY="72.0" prefHeight="41.0" prefWidth="205.0"
-                  style="-fx-background-color: #a5abb8;" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="72.0">
+        <TextArea fx:id="textArea" layoutX="14.0" layoutY="72.0" prefHeight="41.0" prefWidth="205.0" style="-fx-background-color: #a5abb8;" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="72.0">
             <font>
-                <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
+                <Font name="Berlin Sans FB Demi Bold" size="13.0" />
             </font>
         </TextArea>
-        <Button fx:id="okButton" layoutX="172.0" layoutY="135.0" mnemonicParsing="false" prefHeight="26.0"
-                prefWidth="46.0" text="Ok" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="135.0">
+        <Button fx:id="okButton" layoutX="172.0" layoutY="138.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="Ok" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="138.0">
             <font>
-                <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
+                <Font name="Berlin Sans FB Demi Bold" size="13.0" />
             </font>
         </Button>
-        <Text fx:id="text" layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text"
-              wrappingWidth="205.1428571428572">
+        <Text fx:id="text" layoutX="15.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="205.1428571428572">
             <font>
-                <Font name="Berlin Sans FB Demi Bold" size="16.0"/>
+                <Font name="Berlin Sans FB Demi Bold" size="16.0" />
             </font>
         </Text>
         <Button fx:id="reset" layoutX="14.0" layoutY="138.0" mnemonicParsing="false" text="Кнопка сброса">
             <font>
-                <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
+                <Font name="Berlin Sans FB Demi Bold" size="13.0" />
             </font>
         </Button>
+      <Text fx:id="sorry" layoutX="256.0" layoutY="428.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" wrappingWidth="428.13671875">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="authorization" layoutX="439.0" layoutY="446.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="106.0" text="Авторизация" />
     </children>
 </AnchorPane>

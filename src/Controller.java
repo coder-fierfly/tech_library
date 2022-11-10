@@ -18,6 +18,8 @@ import javafx.stage.Stage;
 
 
 public class Controller extends DatabaseHandler implements Initializable {
+    public Text sorry;
+    public Button authorization;
     @FXML
     private Button reset;
     @FXML
@@ -30,11 +32,12 @@ public class Controller extends DatabaseHandler implements Initializable {
     private Text text;
     @FXML
     private TreeView<String> treeView;
-
+    public static int permit;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         text.setText("Введите слово для поиска");
+        authorization.setVisible(false);
         try {
             getDbConnection();
         } catch (SQLException e) {
@@ -44,14 +47,18 @@ public class Controller extends DatabaseHandler implements Initializable {
         this.drawFooter();
     }
 
+
     public void selectTreeView() {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
 
         if (item != null) {
             //TODO переделать проверку на .pdf в конце и убрать (... + ".pdf")
-            if (item.getValue().matches("\\d.*")) {
-                openPdf("src/doc/" + item.getValue() + ".pdf");
+            if (item.getValue().matches(".+\\.pdf") && permit != 0) {
+                openPdf("src/doc/" + item.getValue());
                 treeView.getSelectionModel().clearSelection();
+            } else {
+                sorry.setText("Чтобы открыть документ вам нужно авторизоваться авторизуйтесь");
+                authorization.setVisible(true);
             }
         }
     }
@@ -133,6 +140,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         });
     }
 
+    // поиск нужных файлов по совпадению данных с бд
     private void fileOutput(Map<Integer, String> docMap) {
         TreeItem<String> planeTree;
         TreeItem<String> effTree;
