@@ -26,55 +26,57 @@ public class RegController extends DatabaseHandler {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        //TODO написать сюда проверку регистрации
-        //TODO сделать проверку по не сорвпадению логинов, если логин совпадает попросить перепридумать
-        //
         buttonReg.setOnAction((event) -> {
-            System.out.println("зашли в регу");
             boolean regBool = true;
             if (name.getText().isEmpty()) {
                 regBool = false;
+                //портясти
             }
             if (surname.getText().isEmpty()) {
-                //положить в бд
-
                 regBool = false;
+                //портясти
             }
-            if(!password.getText().isEmpty() && !passwordCheck.getText().isEmpty()) {
-                if (password.getText().matches(passwordCheck.getText())) {
+            if (!password.getText().isEmpty() && !passwordCheck.getText().isEmpty()) {
+                if (password.getText().equals(passwordCheck.getText())) {
                     if (!password.getText().matches("((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(\\_*).{8,})")) {
                         //пароль не по критериям
-                        System.out.println("пароль не по критериям");
                         regBool = false;
+                        textRegError.setText("Пароль должен содержать хотя бы одну прописную " +
+                                "и одну строчную букву латинского алфавита, а также цифру.");
                     }
+                } else {
+                    textRegError.setText("Пароли не совпадают.");
+                    regBool = false;
                 }
             } else {
+                // потрясти
                 regBool = false;
             }
-            if(login.getText().isEmpty()){
+            if (login.getText().isEmpty()) {
                 //тряска
                 regBool = false;
+            } else if (checkLogin(login.getText())) {
+                textRegError.setText("Такой логин уже существет");
+                regBool = false;
             }
-            if(regBool){
+
+            if (regBool) {
                 //заносим все в бд)))))
                 //закрываем окошко идем в приложуху
                 addNewUser(name.getText(), surname.getText(), login.getText(), password.getText());
+                System.out.println("добавлен новый юзер");
                 try {
-                    showMainView();
+                    showAuthorization(buttonReg);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             }
-    });
+        });
 
-}
-    static void showMainView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("fx/library.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        //stage.setTitle("Информация");
-        stage.setResizable(false);
-        stage.show();
+    }
+
+    static void showAuthorization(Button buttonReg) throws IOException {
+        buttonReg.getScene().getWindow().hide();
+        new LoginDemoApplication().start(LoginDemoApplication.stage);
     }
 }

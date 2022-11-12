@@ -8,6 +8,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 /*УРОВНИ ДОСТУПА
  * 0 - гость
@@ -19,7 +20,7 @@ import java.io.IOException;
  * Controls the login screen
  */
 
-public class LoginController {
+public class LoginController extends DatabaseHandler {
     @FXML
     private Button guest;
 
@@ -33,20 +34,22 @@ public class LoginController {
     private TextField password;
     @FXML
     private Button loginButton;
-
+    static Stage stage = new Stage();
     public void initialize() {
+        try {
+            getDbConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void initManager(final LoginManager loginManager) {
-
         buttonReg.setOnAction((event) -> {
             try {
-                showReg();
+                showReg(buttonReg);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-           // System.out.println("регистрация? напиши ее сначала");
-            //TODO сделать окошка регистрации)))
         });
         loginButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -58,8 +61,8 @@ public class LoginController {
         this.guest.setOnAction((event) -> {
             System.out.println("гость кнопка");
             try {
-                Controller.permit = 0;
-                showMainView();
+                Controller.permit = Boolean.parseBoolean(null);
+                showMainView(loginButton);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -67,16 +70,12 @@ public class LoginController {
     }
 
     public boolean authorize() {
-        // TODO сделать проверку из бд
-        // здесь сделать также проверку на права, если чел админ, то открывать ему интерфейс админа,
-        // если нет зареганого чела
-        Boolean bool = false;
-        if ("123".equals(user.getText()) && "123".equals(password.getText())) {
-            bool = true;
-            Controller.permit = 1;
-            //permit.setPermit(12);
-        } else {
+        String userStr = user.getText();
+        Boolean bool = checkLogPass(userStr, password.getText());
+        if (!bool) {
             textReg.setText("Не совпадает пароль или логин");
+        } else {
+            Controller.permit = checkAdminBool(userStr);
         }
         return bool;
     }
@@ -84,30 +83,31 @@ public class LoginController {
     public void authenticated() {
         try {
             if (authorize()) {
-                showMainView();
+                showMainView(loginButton);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    static void showMainView() throws IOException {
-        FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("fx/library.fxml"));
+    private void showMainView(Button loginButton) throws IOException {
+        loginButton.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/library.fxml"));
         Parent root = loader.load();
-        Stage stage = new Stage();
         stage.setScene(new Scene(root));
         //stage.setTitle("Информация");
         stage.setResizable(false);
         stage.show();
     }
 
-    static void showReg() throws IOException {
-        FXMLLoader loader = new FXMLLoader(LoginController.class.getResource("fx/reg.fxml"));
+    private void showReg(Button buttonReg) throws IOException {
+        buttonReg.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/reg.fxml"));
         Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.setTitle("Регистрация");
-        stage.setResizable(false);
-        stage.show();
+        Stage stageReg = new Stage();
+        stageReg.setScene(new Scene(root));
+        stageReg.setTitle("Регистрация");
+        stageReg.setResizable(false);
+        stageReg.show();
     }
 }

@@ -17,19 +17,18 @@ import javafx.stage.Stage;
 - модератор может добавлять доки, а админ может все
 */
 public class LoginDemoApplication extends Application {
+    public static Stage stage = new Stage();
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage st) throws IOException {
+        st = stage;
         Scene scene = new Scene(new StackPane());
-
         LoginManager loginManager = new LoginManager(scene);
         loginManager.showLoginScreen();
-        stage.setScene(scene);
-        stage.show();
-        stage.setScene(scene);
-        stage.show();
+        st.setScene(scene);
+        st.show();
     }
 }

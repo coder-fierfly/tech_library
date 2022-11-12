@@ -16,6 +16,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+//TODO сделать админу возможность добавления документов
+// сделать админу возможность добавлять админов
 
 public class Controller extends DatabaseHandler implements Initializable {
     public Text sorry;
@@ -32,8 +34,9 @@ public class Controller extends DatabaseHandler implements Initializable {
     private Text text;
     @FXML
     private TreeView<String> treeView;
-    public static int permit;
+    public static boolean permit;
 
+    public static boolean admin;
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         text.setText("Введите слово для поиска");
@@ -50,10 +53,9 @@ public class Controller extends DatabaseHandler implements Initializable {
 
     public void selectTreeView() {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
-
-        if (item != null) {
-            //TODO переделать проверку на .pdf в конце и убрать (... + ".pdf")
-            if (item.getValue().matches(".+\\.pdf") && permit != 0) {
+        if (item != null && item.getValue().matches(".+\\.pdf")) {
+            //TODO добавить админа || admin == true
+            if ((permit == true)) {
                 openPdf("src/doc/" + item.getValue());
                 treeView.getSelectionModel().clearSelection();
             } else {
@@ -67,7 +69,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         TreeItem<String> rootItem = new TreeItem<>("Самолеты");
         // добавление картиночки
         // TreeItem<String> rootItem = new TreeItem<>("Files", new ImageView(new Image("Folder_Icon.png")));
-        ArrayList<String> airplane = getName("plane");
+        ArrayList<String> airplane = getNamePlane();
 
         for (int i = 0; i < airplane.size(); i++) {
             TreeItem<String> planeTree = new TreeItem<>(airplane.get(i));
@@ -206,7 +208,7 @@ public class Controller extends DatabaseHandler implements Initializable {
     @FXML
     private void infoOpen() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/info.fxml"));
-        Parent root = (Parent) loader.load();
+        Parent root = loader.load();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.setTitle("Информация");

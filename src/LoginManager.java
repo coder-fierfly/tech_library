@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 /** Manages control flow for logins */
 public class LoginManager {
-    private Scene scene;
+    public static Scene scene;
 
     public LoginManager(Scene scene) {
         this.scene = scene;
