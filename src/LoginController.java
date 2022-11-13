@@ -1,4 +1,3 @@
-import javafx.event.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,14 +10,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 /*УРОВНИ ДОСТУПА
- * 0 - гость
- * 1 - зарегистрированный пользователь
- * 2 - админ
+ * permit = false - гость
+ * permit = true - зарегистрированный пользователь
+ * admin = true админ
  * */
-
-/**
- * Controls the login screen
- */
 
 public class LoginController extends DatabaseHandler {
     @FXML
@@ -43,7 +38,7 @@ public class LoginController extends DatabaseHandler {
         }
     }
 
-    public void initManager(final LoginManager loginManager) {
+    public void initManager() {
         buttonReg.setOnAction((event) -> {
             try {
                 showReg(buttonReg);
@@ -51,17 +46,12 @@ public class LoginController extends DatabaseHandler {
                 throw new RuntimeException(e);
             }
         });
-        loginButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                authenticated();
-            }
-        });
+        loginButton.setOnAction(event -> authenticated());
 
         this.guest.setOnAction((event) -> {
             System.out.println("гость кнопка");
             try {
-                Controller.permit = Boolean.parseBoolean(null);
+                Controller.permit = false;
                 showMainView(loginButton);
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -70,12 +60,14 @@ public class LoginController extends DatabaseHandler {
     }
 
     public boolean authorize() {
-        String userStr = user.getText();
-        Boolean bool = checkLogPass(userStr, password.getText());
+        String userStr = user.getText().toLowerCase();
+        boolean bool = checkLogPass(userStr, password.getText());
         if (!bool) {
             textReg.setText("Не совпадает пароль или логин");
         } else {
-            Controller.permit = checkAdminBool(userStr);
+            Controller.permit = true;
+            Controller.admin = checkAdminBool(userStr);
+            System.out.println("ADMIN  " + checkAdminBool(userStr));
         }
         return bool;
     }

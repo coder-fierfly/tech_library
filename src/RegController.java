@@ -1,12 +1,7 @@
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -19,14 +14,27 @@ public class RegController extends DatabaseHandler {
     public TextField surname;
     public TextField passwordCheck;
     public Button buttonReg;
+    public CheckBox adminCheck;
+    public Text admText;
 
     public void initialize() {
+        if (!Controller.admin) {
+            adminCheck.setVisible(false);
+            admText.setVisible(false);
+        }
+
         try {
             getDbConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         buttonReg.setOnAction((event) -> {
+            boolean adminBool = false;
+
+            if (adminCheck.isSelected()) {
+                adminBool = true;
+                System.out.println(" Controller.adminBool = true;");
+            }
             boolean regBool = true;
             if (name.getText().isEmpty()) {
                 regBool = false;
@@ -38,7 +46,7 @@ public class RegController extends DatabaseHandler {
             }
             if (!password.getText().isEmpty() && !passwordCheck.getText().isEmpty()) {
                 if (password.getText().equals(passwordCheck.getText())) {
-                    if (!password.getText().matches("((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(\\_*).{8,})")) {
+                    if (!password.getText().matches("((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(_*).{8,})")) {
                         //пароль не по критериям
                         regBool = false;
                         textRegError.setText("Пароль должен содержать хотя бы одну прописную " +
@@ -55,16 +63,17 @@ public class RegController extends DatabaseHandler {
             if (login.getText().isEmpty()) {
                 //тряска
                 regBool = false;
-            } else if (checkLogin(login.getText())) {
+            } else if (checkLogin(login.getText().toLowerCase())) {
                 textRegError.setText("Такой логин уже существет");
                 regBool = false;
             }
 
             if (regBool) {
                 //заносим все в бд)))))
-                //закрываем окошко идем в приложуху
-                addNewUser(name.getText(), surname.getText(), login.getText(), password.getText());
+                //закрываем окошко идем в основное окно
+                addNewUser(name.getText(), surname.getText(), login.getText().toLowerCase(), password.getText(), adminBool);
                 System.out.println("добавлен новый юзер");
+
                 try {
                     showAuthorization(buttonReg);
                 } catch (IOException e) {
@@ -72,7 +81,6 @@ public class RegController extends DatabaseHandler {
                 }
             }
         });
-
     }
 
     static void showAuthorization(Button buttonReg) throws IOException {

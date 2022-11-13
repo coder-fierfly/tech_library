@@ -4,40 +4,59 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="350.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RegController">
+<AnchorPane prefHeight="350.0" prefWidth="462.0" style="-fx-background-color: #818791;"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="RegController">
 
-    <children>
-        <TextField fx:id="login" layoutX="169.0" layoutY="117.0" prefHeight="25.0" prefWidth="268.0" promptText="Логин" />
-        <TextField fx:id="password" layoutX="170.0" layoutY="162.0" prefHeight="25.0" prefWidth="268.0" promptText="Пароль" />
-        <Text fx:id="textRegError" layoutX="220.0" layoutY="269.0" strokeWidth="0.0" text="" />
-        <Button fx:id="buttonReg" layoutX="189.0" layoutY="290.0" mnemonicParsing="false" text="Регистрация" />
-        <TextField fx:id="name" layoutX="169.0" layoutY="29.0" prefHeight="25.0" prefWidth="268.0" promptText="Имя" />
-        <TextField fx:id="surname" layoutX="169.0" layoutY="72.0" prefHeight="25.0" prefWidth="268.0" promptText="Фамилия" />
-        <TextField fx:id="passwordCheck" layoutX="170.0" layoutY="202.0" prefHeight="25.0" prefWidth="268.0" promptText="Повтор пароля" />
-        <Text layoutX="30.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Имя:" wrappingWidth="35.44921875">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Text>
-        <Text layoutX="31.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Text>
-        <Text layoutX="30.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Логин:">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Text>
-        <Text layoutX="26.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль:" wrappingWidth="69.0">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Text>
-        <Text layoutX="26.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Повторите пароль:" wrappingWidth="130.57142857142856">
-            <font>
-                <Font size="14.0" />
-            </font>
-        </Text>
-    </children>
+    <TextField fx:id="login" layoutX="169.0" layoutY="117.0" prefHeight="25.0" prefWidth="268.0" promptText="Логин"
+               AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="117.0"/>
+    <TextField fx:id="password" layoutX="170.0" layoutY="162.0" prefHeight="25.0" prefWidth="268.0" promptText="Пароль"
+               AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="162.0"/>
+    <Text fx:id="textRegError" layoutX="24.0" layoutY="260.0" strokeWidth="0.0" wrappingWidth="415.0"
+          AnchorPane.bottomAnchor="86.98828125" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="23.0"/>
+    <Button fx:id="buttonReg" layoutX="189.0" layoutY="290.0" mnemonicParsing="false" text="Регистрация"
+            AnchorPane.bottomAnchor="34.85714285714286" AnchorPane.leftAnchor="189.0"
+            AnchorPane.rightAnchor="188.42857142857144"/>
+    <TextField fx:id="name" layoutX="169.0" layoutY="29.0" prefHeight="25.0" prefWidth="268.0" promptText="Имя"
+               AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="29.0"/>
+    <TextField fx:id="surname" layoutX="169.0" layoutY="72.0" prefHeight="25.0" prefWidth="268.0" promptText="Фамилия"
+               AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="72.0"/>
+    <TextField fx:id="passwordCheck" layoutX="170.0" layoutY="202.0" prefHeight="25.0" prefWidth="268.0"
+               promptText="Повтор пароля" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="24.0"
+               AnchorPane.topAnchor="202.0"/>
+    <Text layoutX="30.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Имя:" wrappingWidth="35.44921875"
+          AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="400.55078125" AnchorPane.topAnchor="31.892578125">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Text>
+    <Text layoutX="31.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия:"
+          AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="375.1533203125" AnchorPane.topAnchor="74.892578125">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Text>
+    <Text layoutX="30.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Логин:"
+          AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="367.0" AnchorPane.topAnchor="119.892578125">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Text>
+    <Text layoutX="26.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль:" wrappingWidth="69.0"
+          AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="367.0" AnchorPane.topAnchor="164.892578125">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Text>
+    <Text layoutX="26.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Повторите пароль:"
+          wrappingWidth="130.57142857142856" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="305.42857142857144"
+          AnchorPane.topAnchor="204.892578125">
+        <font>
+            <Font size="14.0"/>
+        </font>
+    </Text>
+    <CheckBox fx:id="adminCheck" layoutX="420.0" layoutY="294.0" mnemonicParsing="false"
+              AnchorPane.bottomAnchor="38.85714285714286" AnchorPane.rightAnchor="25.428571428571427"/>
+    <Text fx:id="admText" layoutX="374.0" layoutY="307.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Админ"
+          AnchorPane.bottomAnchor="39.0" AnchorPane.rightAnchor="51.373046875"/>
 </AnchorPane>

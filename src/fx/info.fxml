@@ -13,7 +13,7 @@
             <Font name="Segoe UI Semibold" size="20.0"/>
         </font>
         <fill>
-            <LinearGradient endX="1.0" endY="1.0">
+            <LinearGradient>
                 <stops>
                     <Stop>
                         <color>
@@ -52,17 +52,17 @@
             <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
-    <Text layoutX="37.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+    <Text layoutX="37.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0">
         <font>
             <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
-    <Text layoutX="37.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+    <Text layoutX="37.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0">
         <font>
             <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>
     </Text>
-    <Text layoutX="37.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="">
+    <Text layoutX="37.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0">
         <font>
             <Font name="Berlin Sans FB Demi" size="13.0"/>
         </font>

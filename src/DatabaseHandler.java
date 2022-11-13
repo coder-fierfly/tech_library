@@ -230,7 +230,7 @@ public class DatabaseHandler extends Configs {
     }
 
     // добавление нового пользователя
-    public void addNewUser(String name, String surname, String login, String pas) {
+    public void addNewUser(String name, String surname, String login, String pas, boolean bool) {
         Statement statement;
         try {
             statement = dbConnection.createStatement();
@@ -240,7 +240,7 @@ public class DatabaseHandler extends Configs {
         String insert;
         insert = "INSERT INTO " + Const.TABLE_USERS + "(" + Const.USER_NAME + "," + Const.USER_SURNAME + ","
                 + Const.USER_LOG + "," + Const.USER_PASS + "," + Const.USER_ADMIN + ")" + "VALUES('" + name + "','"
-                + surname + "','" + login + "','" + pas + "'," + "false" + ")";
+                + surname + "','" + login + "','" + pas + "'," + bool + ")";
         try {
             statement.executeUpdate(insert);
         } catch (SQLException e) {
@@ -262,11 +262,7 @@ public class DatabaseHandler extends Configs {
                 " WHERE " + Const.USER_LOG + " = '" + login + "' AND " + Const.USER_PASS + " = '" + password + "'";
         try {
             resultSet = statement.executeQuery(sel);
-            if (resultSet.next()) {
-                return true;
-            } else {
-                return false;
-            }
+            return resultSet.next();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -274,23 +270,10 @@ public class DatabaseHandler extends Configs {
 
     // проверка на то существует ли такой логин в базе или нет
     public boolean checkLogin(String login) {
-        Statement statement;
+        ResultSet resultSet = result(login);
+        System.out.println("checkLogin");
         try {
-            statement = dbConnection.createStatement();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        ResultSet resultSet;
-        //SELECT user_log FROM users WHERE user_log = 'firefly'
-        String sel = "SELECT " + Const.USER_ADMIN + " FROM " + Const.TABLE_USERS +
-                " WHERE " + Const.USER_LOG + " = '" + login + "'";
-        try {
-            resultSet = statement.executeQuery(sel);
-            if (resultSet.next()) {
-                return true;
-            } else {
-                return false;
-            }
+            return resultSet.next();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -298,22 +281,9 @@ public class DatabaseHandler extends Configs {
 
     //проверка на то является ли пользователь администратором
     public boolean checkAdminBool(String login) {
-        Statement statement;
-        try {
-            statement = dbConnection.createStatement();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        ResultSet resultSet;
-        //SELECT user_admin FROM users WHERE user_log = 'firefly'
-        String sel = "SELECT " + Const.USER_ADMIN + " FROM " + Const.TABLE_USERS +
-                " WHERE " + Const.USER_LOG + " = '" + login + "'";
+        System.out.println(" checkAdminBool");
+        ResultSet resultSet = result(login);
         Boolean bool = null;
-        try {
-            resultSet = statement.executeQuery(sel);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
 
         while (true) {
             try {
@@ -346,6 +316,7 @@ public class DatabaseHandler extends Configs {
         }
         return list;
     }
+
     public ArrayList<Integer> resultToArrayInt(ResultSet resultSet) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         while (true) {
@@ -378,5 +349,24 @@ public class DatabaseHandler extends Configs {
             }
         }
         return storage;
+    }
+
+    public ResultSet result(String str){
+        Statement statement;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ResultSet resultSet;
+        //SELECT user_admin FROM users WHERE user_log = 'firefly'
+        String sel = "SELECT " + Const.USER_ADMIN + " FROM " + Const.TABLE_USERS +
+                " WHERE " + Const.USER_LOG + " = '" + str + "'";
+        try {
+            resultSet = statement.executeQuery(sel);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return resultSet;
     }
 }

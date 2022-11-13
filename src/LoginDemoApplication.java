@@ -1,10 +1,4 @@
-import java.io.IOException;
-import java.net.URL;
-import java.util.Objects;
-
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -18,17 +12,18 @@ import javafx.stage.Stage;
 */
 public class LoginDemoApplication extends Application {
     public static Stage stage = new Stage();
+
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage st) throws IOException {
-        st = stage;
+    public void start(Stage stageLogin){
+        stageLogin = stage;
         Scene scene = new Scene(new StackPane());
         LoginManager loginManager = new LoginManager(scene);
         loginManager.showLoginScreen();
-        st.setScene(scene);
-        st.show();
+        stageLogin.setScene(scene);
+        stageLogin.show();
     }
 }

@@ -17,7 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 //TODO сделать админу возможность добавления документов
-// сделать админу возможность добавлять админов
+// сделать значок перезагрузки и значок информации
 
 public class Controller extends DatabaseHandler implements Initializable {
     public Text sorry;
@@ -37,10 +37,15 @@ public class Controller extends DatabaseHandler implements Initializable {
     public static boolean permit;
 
     public static boolean admin;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         text.setText("Введите слово для поиска");
-        authorization.setVisible(false);
+        if(!admin){
+            authorization.setVisible(false);
+        } else {
+            authorization.setText("Зарегистрировать");
+        }
         try {
             getDbConnection();
         } catch (SQLException e) {
@@ -54,12 +59,12 @@ public class Controller extends DatabaseHandler implements Initializable {
     public void selectTreeView() {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
         if (item != null && item.getValue().matches(".+\\.pdf")) {
-            //TODO добавить админа || admin == true
-            if ((permit == true)) {
+            System.out.println("admin " + admin);
+            if (permit || admin) {
                 openPdf("src/doc/" + item.getValue());
                 treeView.getSelectionModel().clearSelection();
             } else {
-                sorry.setText("Чтобы открыть документ вам нужно авторизоваться авторизуйтесь");
+                sorry.setText("Чтобы открыть документ вам нужно зарегистрироваться");
                 authorization.setVisible(true);
             }
         }
@@ -112,6 +117,13 @@ public class Controller extends DatabaseHandler implements Initializable {
                 var3.printStackTrace();
             }
         });
+        this.authorization.setOnAction((event) -> {
+            try {
+                showReg(authorization);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
         this.reset.setOnAction((event) -> {
             textArea.setText("");
             text.setText("Выполняю...");
@@ -124,7 +136,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         this.okButton.setOnAction((event) -> {
             if (textArea.getText().length() < 50) {
                 // Убираю лишние пробелы до и после запроса. Пробелы между словами, заменяю на &
-                String srt = textArea.getText().trim().replaceAll(" {1,}", " & ");
+                String srt = textArea.getText().trim().replaceAll(" +", " & ");
                 Map<Integer, String> doc = findDocByText(srt);
 
                 if (srt.isEmpty()) {
@@ -153,7 +165,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         Map<Integer, String> planeMap = new HashMap<>();
         while (itr.hasNext()) {
             Map.Entry<Integer, String> entry = itr.next();
-            docTree = new TreeItem<>(entry.getValue());
+//            docTree = new TreeItem<>(entry.getValue());
             // без повторений добавляются имена эфф
             String str = getEffNameIdByDocId(entry.getKey()).str;
             int id = getEffNameIdByDocId(entry.getKey()).num;
@@ -216,5 +228,16 @@ public class Controller extends DatabaseHandler implements Initializable {
         //TODO добавить каку-нибудь картиночку))()
         //stage.getIcons().add(new Image("file:com/company/pictures/Calendar.png"));
         stage.show();
+    }
+
+    private void showReg(Button buttonReg) throws IOException {
+        buttonReg.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/reg.fxml"));
+        Parent root = loader.load();
+        Stage stageReg = new Stage();
+        stageReg.setScene(new Scene(root));
+        stageReg.setTitle("Регистрация");
+        stageReg.setResizable(false);
+        stageReg.show();
     }
 }
