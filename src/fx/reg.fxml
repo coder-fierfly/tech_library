@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="350.0" prefWidth="462.0" style="-fx-background-color: #818791;"
+<AnchorPane prefHeight="350.0" prefWidth="462.0" style="-fx-background-color: #cdcdcd;"
             xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="RegController">
 
@@ -14,7 +14,8 @@
                AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="162.0"/>
     <Text fx:id="textRegError" layoutX="24.0" layoutY="260.0" strokeWidth="0.0" wrappingWidth="415.0"
           AnchorPane.bottomAnchor="86.98828125" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="23.0"/>
-    <Button fx:id="buttonReg" layoutX="189.0" layoutY="290.0" mnemonicParsing="false" text="Регистрация"
+    <Button fx:id="buttonReg" layoutX="189.0" layoutY="290.0" style="-fx-background-color: #efebe9;"
+            mnemonicParsing="false" text="Ok"
             AnchorPane.bottomAnchor="34.85714285714286" AnchorPane.leftAnchor="189.0"
             AnchorPane.rightAnchor="188.42857142857144"/>
     <TextField fx:id="name" layoutX="169.0" layoutY="29.0" prefHeight="25.0" prefWidth="268.0" promptText="Имя"

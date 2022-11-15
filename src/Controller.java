@@ -13,8 +13,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.scene.image.ImageView;
 
 //TODO сделать админу возможность добавления документов
 // сделать значок перезагрузки и значок информации
@@ -41,7 +43,8 @@ public class Controller extends DatabaseHandler implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         text.setText("Введите слово для поиска");
-        if(!admin){
+
+        if (!admin) {
             authorization.setVisible(false);
         } else {
             authorization.setText("Зарегистрировать");
@@ -208,7 +211,6 @@ public class Controller extends DatabaseHandler implements Initializable {
                         }
                     }
                 }
-
                 //чтобы скрыть первоначальный элемент
                 treeView.setShowRoot(false);
                 this.treeView.setRoot(rootItem);
@@ -225,8 +227,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         stage.setScene(new Scene(root));
         stage.setTitle("Информация");
         stage.setResizable(false);
-        //TODO добавить каку-нибудь картиночку))()
-        //stage.getIcons().add(new Image("file:com/company/pictures/Calendar.png"));
+        stage.getIcons().add(new Image("picture/plane.png"));
         stage.show();
     }
 

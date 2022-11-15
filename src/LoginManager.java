@@ -3,6 +3,8 @@ import java.util.logging.*;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 /**
  * Manages control flow for logins
@@ -23,6 +25,7 @@ public class LoginManager {
             LoginController controller =
                     loader.getController();
             controller.initManager();
+            //stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LoginManager.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="почистила ошибки">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="немного поработала над дизайном">
+      <change afterPath="$PROJECT_DIR$/src/picture/in.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/picture/ok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/picture/ref.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginDemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginDemoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fx/info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/info.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fx/library.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/library.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fx/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/login.fxml" afterDir="false" />
@@ -34,6 +34,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/fx/library.fxml" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -52,7 +55,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/math222&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/untitled8&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -68,7 +71,11 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\untitled8\src\picture" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\untitled8\src\picture" />
       <recent name="D:\IdeaProjects\untitled8\src\fx" />
       <recent name="C:\Users\lena\IdeaProjects\untitled8\src\doc" />
       <recent name="C:\Users\lena\IdeaProjects\untitled8\src" />
@@ -168,7 +175,11 @@
       <workItem from="1668247493498" duration="359000" />
       <workItem from="1668272350405" duration="1340000" />
       <workItem from="1668348009956" duration="1971000" />
-      <workItem from="1668350005092" duration="4605000" />
+      <workItem from="1668350005092" duration="4684000" />
+      <workItem from="1668410815728" duration="3565000" />
+      <workItem from="1668498281927" duration="4232000" />
+      <workItem from="1668516714832" duration="130000" />
+      <workItem from="1668516939899" duration="1362000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -289,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668245640298</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="немного поработала над дизайном">
+      <created>1668356066952</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1668356066952</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,6 +353,7 @@
     <MESSAGE value="сделала регистрацию, надо теперь прикрепить ее к бд" />
     <MESSAGE value="регистрация теперь передается в бд" />
     <MESSAGE value="почистила ошибки" />
-    <option name="LAST_COMMIT_MESSAGE" value="почистила ошибки" />
+    <MESSAGE value="немного поработала над дизайном" />
+    <option name="LAST_COMMIT_MESSAGE" value="немного поработала над дизайном" />
   </component>
 </project>

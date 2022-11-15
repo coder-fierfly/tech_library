@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -30,6 +31,7 @@ public class LoginController extends DatabaseHandler {
     @FXML
     private Button loginButton;
     static Stage stage = new Stage();
+
     public void initialize() {
         try {
             getDbConnection();
@@ -86,8 +88,10 @@ public class LoginController extends DatabaseHandler {
         loginButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/library.fxml"));
         Parent root = loader.load();
-        stage.setScene(new Scene(root));
-        //stage.setTitle("Информация");
+        Scene scene = new Scene(root);
+        stage.getIcons().add(new Image("picture/plane.png"));
+        stage.setScene(scene);
+        stage.setTitle("ATL");
         stage.setResizable(false);
         stage.show();
     }
@@ -97,7 +101,9 @@ public class LoginController extends DatabaseHandler {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/reg.fxml"));
         Parent root = loader.load();
         Stage stageReg = new Stage();
-        stageReg.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        stageReg.getIcons().add(new Image("picture/plane.png"));
+        stageReg.setScene(scene);
         stageReg.setTitle("Регистрация");
         stageReg.setResizable(false);
         stageReg.show();

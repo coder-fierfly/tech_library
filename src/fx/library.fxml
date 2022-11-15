@@ -4,37 +4,77 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="505.0" prefWidth="720.0" style="-fx-background-color: #818791;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
-    <TreeView fx:id="treeView" layoutX="222.0" layoutY="13.0" onContextMenuRequested="#selectTreeView" onMouseClicked="#selectTreeView" prefHeight="478.0" prefWidth="469.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="13.0" />
-    <Button fx:id="info" layoutX="14.0" layoutY="460.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="60.0" style="-fx-background-color: #F0FFFF;" text="Info" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="14.0">
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="505.0" prefWidth="720.0" style="-fx-background-color: #cdcdcd;"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <TreeView fx:id="treeView" layoutX="222.0" layoutY="13.0" onContextMenuRequested="#selectTreeView"
+              onMouseClicked="#selectTreeView" prefHeight="478.0" prefWidth="469.0"
+              style="-fx-background-color: #efebe9;" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="15.0"
+              AnchorPane.topAnchor="13.0"/>
+    <Button fx:id="info" layoutX="14.0" layoutY="460.0" mnemonicParsing="false" graphicTextGap="10.0" prefHeight="31.0"
+            prefWidth="60.0"
+            style="-fx-background-color: #efebe9;" AnchorPane.bottomAnchor="15.0"
+            AnchorPane.leftAnchor="14.0">
         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
         </font>
+        <graphic>
+            <ImageView fx:id="infIm" fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="/picture/in.png"/>
+                </image>
+            </ImageView>
+        </graphic>
     </Button>
-    <TextArea fx:id="textArea" layoutX="14.0" layoutY="72.0" prefHeight="41.0" prefWidth="205.0" style="-fx-background-color: #a5abb8;" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="72.0">
+    <TextArea fx:id="textArea" layoutX="14.0" layoutY="72.0" prefHeight="41.0" prefWidth="205.0"
+              style="-fx-background-color: #efebe9;" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="72.0">
         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
         </font>
     </TextArea>
-    <Button fx:id="okButton" layoutX="172.0" layoutY="138.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="Ok" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="138.0">
+    <Button fx:id="okButton" layoutX="172.0" layoutY="138.0" graphicTextGap="6.0" mnemonicParsing="false"
+            prefHeight="26.0" prefWidth="46.0"
+            style="-fx-background-color: #efebe9;" AnchorPane.leftAnchor="172.0" AnchorPane.topAnchor="138.0">
         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
+
         </font>
+        <graphic>
+            <ImageView fx:id="menu" fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="/picture/ok.png"/>
+                </image>
+            </ImageView>
+        </graphic>
     </Button>
-    <Text fx:id="text" layoutX="15.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="205.1428571428572" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.734375">
+    <Text fx:id="text" layoutX="15.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          wrappingWidth="205.1428571428572" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="20.734375">
         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="16.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="16.0"/>
         </font>
     </Text>
-    <Button fx:id="reset" layoutX="14.0" layoutY="138.0" mnemonicParsing="false" text="Кнопка сброса" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="138.0">
+    <Button fx:id="reset" layoutX="14.0" layoutY="138.0" graphicTextGap="6.0" mnemonicParsing="false"
+            pickOnBounds="true" style="-fx-background-color: #efebe9;"
+            AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="138.0">
         <font>
-            <Font name="Berlin Sans FB Demi Bold" size="13.0" />
+            <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
         </font>
+        <graphic>
+            <ImageView fx:id="res" fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="/picture/ref.png"/>
+                </image>
+            </ImageView>
+        </graphic>
     </Button>
-    <Text fx:id="sorry" layoutX="280.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="379.13671875">
+    <Text fx:id="sorry" layoutX="280.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          wrappingWidth="379.13671875">
         <font>
-          <Font size="14.0" />
+            <Font size="14.0"/>
         </font>
     </Text>
-    <Button fx:id="authorization" layoutX="401.0" layoutY="443.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="138.0" text="Зарегистрироваться" AnchorPane.bottomAnchor="30.571428571428555" AnchorPane.rightAnchor="180.71428571428578" />
+    <Button fx:id="authorization" layoutX="401.0" layoutY="443.0" mnemonicParsing="false" prefHeight="31.0"
+            prefWidth="138.0" text="Зарегистрироваться" AnchorPane.bottomAnchor="30.571428571428555"
+            AnchorPane.rightAnchor="180.71428571428578"/>
 </AnchorPane>
