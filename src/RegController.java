@@ -22,7 +22,6 @@ public class RegController extends DatabaseHandler {
             adminCheck.setVisible(false);
             admText.setVisible(false);
         }
-
         try {
             getDbConnection();
         } catch (SQLException e) {
@@ -30,10 +29,8 @@ public class RegController extends DatabaseHandler {
         }
         buttonReg.setOnAction((event) -> {
             boolean adminBool = false;
-
             if (adminCheck.isSelected()) {
                 adminBool = true;
-                System.out.println(" Controller.adminBool = true;");
             }
             boolean regBool = true;
             if (name.getText().isEmpty()) {
@@ -46,11 +43,11 @@ public class RegController extends DatabaseHandler {
             }
             if (!password.getText().isEmpty() && !passwordCheck.getText().isEmpty()) {
                 if (password.getText().equals(passwordCheck.getText())) {
-                    if (!password.getText().matches("((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(_*).{8,})")) {
+                    if (!password.getText().matches("((?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{8,})")) {
                         //пароль не по критериям
                         regBool = false;
-                        textRegError.setText("Пароль должен содержать хотя бы одну прописную " +
-                                "и одну строчную букву латинского алфавита, а также цифру.");
+                        textRegError.setText("Пароль должен содержать 8 символов из которых, хотя бы одна прописная " +
+                                "и одна строчная буквы латинского алфавита, а также цифра.");
                     }
                 } else {
                     textRegError.setText("Пароли не совпадают.");
@@ -72,8 +69,6 @@ public class RegController extends DatabaseHandler {
                 //заносим все в бд)))))
                 //закрываем окошко идем в основное окно
                 addNewUser(name.getText(), surname.getText(), login.getText().toLowerCase(), password.getText(), adminBool);
-                System.out.println("добавлен новый юзер");
-
                 try {
                     showAuthorization(buttonReg);
                 } catch (IOException e) {

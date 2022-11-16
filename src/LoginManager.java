@@ -25,7 +25,6 @@ public class LoginManager {
             LoginController controller =
                     loader.getController();
             controller.initManager();
-            //stage.show();
         } catch (IOException ex) {
             Logger.getLogger(LoginManager.class.getName()).log(Level.SEVERE, null, ex);
         }

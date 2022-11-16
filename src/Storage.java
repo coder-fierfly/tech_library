@@ -1,3 +1,4 @@
+// класс для передачи int и string
 public class Storage {
     int num;
     String str;

@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="немного поработала над дизайном">
-      <change afterPath="$PROJECT_DIR$/src/picture/in.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/picture/ok.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/picture/ref.png" afterDir="false" />
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="приложение готово">
+      <change afterPath="$PROJECT_DIR$/src/fx/file.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginDemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginDemoApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/info.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Storage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fx/info.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fx/library.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/library.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/reg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/reg.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled8.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -55,14 +54,16 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/untitled8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/untitled8/src/fx/library.fxml&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -179,7 +180,14 @@
       <workItem from="1668410815728" duration="3565000" />
       <workItem from="1668498281927" duration="4232000" />
       <workItem from="1668516714832" duration="130000" />
-      <workItem from="1668516939899" duration="1362000" />
+      <workItem from="1668516939899" duration="3361000" />
+      <workItem from="1668520570645" duration="522000" />
+      <workItem from="1668525286621" duration="1466000" />
+      <workItem from="1668528567123" duration="239000" />
+      <workItem from="1668528818847" duration="243000" />
+      <workItem from="1668529075990" duration="748000" />
+      <workItem from="1668529837749" duration="865000" />
+      <workItem from="1668610139893" duration="1233000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -307,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668356066952</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="приложение готово">
+      <created>1668518347712</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1668518347712</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +369,7 @@
     <MESSAGE value="регистрация теперь передается в бд" />
     <MESSAGE value="почистила ошибки" />
     <MESSAGE value="немного поработала над дизайном" />
-    <option name="LAST_COMMIT_MESSAGE" value="немного поработала над дизайном" />
+    <MESSAGE value="приложение готово" />
+    <option name="LAST_COMMIT_MESSAGE" value="приложение готово" />
   </component>
 </project>

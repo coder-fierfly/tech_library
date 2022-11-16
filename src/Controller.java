@@ -16,14 +16,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.image.ImageView;
 
 //TODO сделать админу возможность добавления документов
-// сделать значок перезагрузки и значок информации
 
 public class Controller extends DatabaseHandler implements Initializable {
     public Text sorry;
     public Button authorization;
+    public Button addNewDoc;
     @FXML
     private Button reset;
     @FXML
@@ -155,6 +154,13 @@ public class Controller extends DatabaseHandler implements Initializable {
                 text.setText("Запрос слишком длинный");
             }
         });
+        this.addNewDoc.setOnAction((event) -> {
+            try {
+                showAdder(addNewDoc);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
 
     // поиск нужных файлов по совпадению данных с бд
@@ -238,6 +244,16 @@ public class Controller extends DatabaseHandler implements Initializable {
         Stage stageReg = new Stage();
         stageReg.setScene(new Scene(root));
         stageReg.setTitle("Регистрация");
+        stageReg.setResizable(false);
+        stageReg.show();
+    }
+
+    private void showAdder(Button addNewDoc) throws IOException {
+        addNewDoc.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/file.fxml"));
+        Parent root = loader.load();
+        Stage stageReg = new Stage();
+        stageReg.setScene(new Scene(root));
         stageReg.setResizable(false);
         stageReg.show();
     }

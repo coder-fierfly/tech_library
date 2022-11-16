@@ -20,10 +20,8 @@
             <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
         </font>
         <graphic>
-            <ImageView fx:id="infIm" fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                <image>
+            <ImageView fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="/picture/in.png"/>
-                </image>
             </ImageView>
         </graphic>
     </Button>
@@ -41,10 +39,8 @@
 
         </font>
         <graphic>
-            <ImageView fx:id="menu" fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                <image>
+            <ImageView fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="/picture/ok.png"/>
-                </image>
             </ImageView>
         </graphic>
     </Button>
@@ -55,16 +51,14 @@
         </font>
     </Text>
     <Button fx:id="reset" layoutX="14.0" layoutY="138.0" graphicTextGap="6.0" mnemonicParsing="false"
-            pickOnBounds="true" style="-fx-background-color: #efebe9;"
+            style="-fx-background-color: #efebe9;"
             AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="138.0">
         <font>
             <Font name="Berlin Sans FB Demi Bold" size="13.0"/>
         </font>
         <graphic>
-            <ImageView fx:id="res" fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
-                <image>
+            <ImageView fitHeight="19.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
                     <Image url="/picture/ref.png"/>
-                </image>
             </ImageView>
         </graphic>
     </Button>
@@ -77,4 +71,7 @@
     <Button fx:id="authorization" layoutX="401.0" layoutY="443.0" mnemonicParsing="false" prefHeight="31.0"
             prefWidth="138.0" text="Зарегистрироваться" AnchorPane.bottomAnchor="30.571428571428555"
             AnchorPane.rightAnchor="180.71428571428578"/>
+    <Button fx:id="addNewDoc" layoutX="401.0" layoutY="443.0" mnemonicParsing="false" prefHeight="31.0"
+            prefWidth="138.0" text="Добавить документ" AnchorPane.bottomAnchor="25.571428571428555"
+            AnchorPane.rightAnchor="500.71428571428578"/>
 </AnchorPane>
