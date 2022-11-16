@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?com.company.xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<AnchorPane prefHeight="405.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="InfoController">
+    <Text layoutX="37.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Информация о приложении"
+          textAlignment="CENTER" wrappingWidth="506.60150146484375">
+        <font>
+            <Font name="Segoe UI Semibold" size="20.0"/>
+        </font>
+        <fill>
+            <LinearGradient>
+                <stops>
+                    <Stop>
+                        <color>
+                            <Color red="0.03529411926865578" green="0.4588235318660736" blue="0.43921568989753723"/>
+                        </color>
+                    </Stop>
+                    <Stop offset="1.0">
+                        <color>
+                            <Color red="0.05882352963089943" green="0.45098039507865906" blue="0.5411764979362488"/>
+                        </color>
+                    </Stop>
+                </stops>
+            </LinearGradient>
+        </fill>
+    </Text>
+    <Text layoutX="38.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Данная программа написана в рамках курсовой работы. С помощью нее вы получаете доступ к технической литературе самолетов, автор не несет ответственность за подлинность технической документации."
+          wrappingWidth="532.6015014648438">
+        <font>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
+        </font>
+    </Text>
+    <Text layoutX="36.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Разработчик: Андрианова Елена Андреевна" wrappingWidth="269.13671875">
+        <font>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
+        </font>
+    </Text>
+    <Text layoutX="123.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0">
+        <font>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
+        </font>
+    </Text>
+    <Text layoutX="36.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Университет: МАИ">
+        <font>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
+        </font>
+    </Text>
+    <Text layoutX="38.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="По всем вопросам и предложениям обращайтесь на почту andrianovalena1@gmail.com или телеграмм @ffiefly."
+          wrappingWidth="532.6015014648438">
+        <font>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
+        </font>
+    </Text>
+    <Text layoutX="37.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0">
+        <font>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
+        </font>
+    </Text>
+    <Text layoutX="37.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0">
+        <font>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
+        </font>
+    </Text>
+    <Text layoutX="37.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Год создания программы: 2022">
+        <font>
+            <Font name="Berlin Sans FB Demi" size="13.0"/>
+        </font>
+    </Text>
+    <Pane layoutX="359.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0">
+            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="/picture/qr.png"/>
+            </ImageView>
+    </Pane>
+</AnchorPane>
