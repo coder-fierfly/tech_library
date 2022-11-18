@@ -4,7 +4,7 @@ public class Const {
     public static final String TABLE_EFF = "effectivity";
     public static final String TABLE_PLANE = "plane";
     public static final String TABLE_PLANE_EFF = "plane_effectivity";
-    public static final String TABLE_DOC_EFF = "doc_effectivity";
+    public static final String TABLE_DOC_EFF = "effectivity_doc";
     public static final String TABLE_TEXT = "text_by_doc";
     public static final String DOC_ID = "doc_id";
     public static final String DOC_NAME = "doc_name";

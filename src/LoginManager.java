@@ -3,8 +3,6 @@ import java.util.logging.*;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
-import javafx.scene.image.Image;
-import javafx.stage.Stage;
 
 /**
  * Manages control flow for logins

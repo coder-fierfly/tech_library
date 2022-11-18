@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="приложение готово">
-      <change afterPath="$PROJECT_DIR$/src/fx/file.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="добавление доков для админа">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Const.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Storage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/info.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/library.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/library.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/untitled8.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc/1 doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/eff1/1 doc.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc/2 doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/eff2/2 doc.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fx/file.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/file.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,7 +54,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/untitled8/src/fx/library.fxml&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/untitled8&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -76,11 +76,11 @@
       <recent name="D:\IdeaProjects\untitled8\src\picture" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\untitled8\src\doc\eff2" />
+      <recent name="D:\IdeaProjects\untitled8\src\doc\eff_1" />
+      <recent name="D:\IdeaProjects\untitled8\src\doc" />
       <recent name="D:\IdeaProjects\untitled8\src\picture" />
       <recent name="D:\IdeaProjects\untitled8\src\fx" />
-      <recent name="C:\Users\lena\IdeaProjects\untitled8\src\doc" />
-      <recent name="C:\Users\lena\IdeaProjects\untitled8\src" />
-      <recent name="C:\Users\lena\IdeaProjects\untitled8\out\production\untitled8" />
     </key>
   </component>
   <component name="RunManager" selected="Application.LoginDemoApplication">
@@ -187,7 +187,22 @@
       <workItem from="1668528818847" duration="243000" />
       <workItem from="1668529075990" duration="748000" />
       <workItem from="1668529837749" duration="865000" />
-      <workItem from="1668610139893" duration="1233000" />
+      <workItem from="1668610139893" duration="1290000" />
+      <workItem from="1668618326075" duration="882000" />
+      <workItem from="1668621629850" duration="2281000" />
+      <workItem from="1668686265365" duration="4632000" />
+      <workItem from="1668694147495" duration="514000" />
+      <workItem from="1668695216349" duration="1307000" />
+      <workItem from="1668702563432" duration="3239000" />
+      <workItem from="1668757132585" duration="2182000" />
+      <workItem from="1668761559859" duration="341000" />
+      <workItem from="1668762097764" duration="871000" />
+      <workItem from="1668763220952" duration="789000" />
+      <workItem from="1668765408671" duration="426000" />
+      <workItem from="1668775644431" duration="871000" />
+      <workItem from="1668776866108" duration="1733000" />
+      <workItem from="1668780953134" duration="3100000" />
+      <workItem from="1668784070103" duration="624000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -322,7 +337,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668518347712</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="добавление доков для админа">
+      <created>1668611397209</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1668611397209</updated>
+    </task>
+    <task id="LOCAL-00021" summary="добавление доков для админа">
+      <created>1668611409532</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1668611409532</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,6 +399,7 @@
     <MESSAGE value="почистила ошибки" />
     <MESSAGE value="немного поработала над дизайном" />
     <MESSAGE value="приложение готово" />
-    <option name="LAST_COMMIT_MESSAGE" value="приложение готово" />
+    <MESSAGE value="добавление доков для админа" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавление доков для админа" />
   </component>
 </project>

@@ -28,18 +28,17 @@ public class RegController extends DatabaseHandler {
             throw new RuntimeException(e);
         }
         buttonReg.setOnAction((event) -> {
-            boolean adminBool = false;
-            if (adminCheck.isSelected()) {
-                adminBool = true;
-            }
+            boolean adminBool = adminCheck.isSelected();
             boolean regBool = true;
             if (name.getText().isEmpty()) {
                 regBool = false;
-                //портясти
+                Shake shake= new Shake(name);
+                shake.playAnim();
             }
             if (surname.getText().isEmpty()) {
                 regBool = false;
-                //портясти
+                Shake shake= new Shake(surname);
+                shake.playAnim();
             }
             if (!password.getText().isEmpty() && !passwordCheck.getText().isEmpty()) {
                 if (password.getText().equals(passwordCheck.getText())) {
@@ -54,11 +53,13 @@ public class RegController extends DatabaseHandler {
                     regBool = false;
                 }
             } else {
-                // потрясти
+                Shake shake= new Shake(password);
+                shake.playAnim();
                 regBool = false;
             }
             if (login.getText().isEmpty()) {
-                //тряска
+                Shake shake= new Shake(login);
+                shake.playAnim();
                 regBool = false;
             } else if (checkLogin(login.getText().toLowerCase())) {
                 textRegError.setText("Такой логин уже существет");

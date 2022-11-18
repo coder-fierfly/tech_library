@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 import java.sql.*;
@@ -16,8 +17,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-//TODO сделать админу возможность добавления документов
 
 public class Controller extends DatabaseHandler implements Initializable {
     public Text sorry;
@@ -45,6 +44,7 @@ public class Controller extends DatabaseHandler implements Initializable {
 
         if (!admin) {
             authorization.setVisible(false);
+            addNewDoc.setVisible(false);
         } else {
             authorization.setText("Зарегистрировать");
         }
@@ -61,9 +61,11 @@ public class Controller extends DatabaseHandler implements Initializable {
     public void selectTreeView() {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
         if (item != null && item.getValue().matches(".+\\.pdf")) {
-            System.out.println("admin " + admin);
+            String parent =  item.getParent().getValue().replaceAll(" ", "_");
+            //TODO добавить в путь эффективити, сделать в эффективити замену пробелов на _
+            //TODO здесь возможна ошибка
             if (permit || admin) {
-                openPdf("src/doc/" + item.getValue());
+                openPdf("src/doc/" + parent + "/" + item.getValue());
                 treeView.getSelectionModel().clearSelection();
             } else {
                 sorry.setText("Чтобы открыть документ вам нужно зарегистрироваться");
@@ -76,7 +78,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         TreeItem<String> rootItem = new TreeItem<>("Самолеты");
         // добавление картиночки
         // TreeItem<String> rootItem = new TreeItem<>("Files", new ImageView(new Image("Folder_Icon.png")));
-        ArrayList<String> airplane = getNamePlane();
+        ArrayList<String> airplane = getName("plane");
 
         for (int i = 0; i < airplane.size(); i++) {
             TreeItem<String> planeTree = new TreeItem<>(airplane.get(i));
@@ -233,7 +235,11 @@ public class Controller extends DatabaseHandler implements Initializable {
         stage.setScene(new Scene(root));
         stage.setTitle("Информация");
         stage.setResizable(false);
-        stage.getIcons().add(new Image("picture/plane.png"));
+        try {
+            stage.getIcons().add(new Image( getClass().getResource("picture/plane.png").toURI().toString()));
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
         stage.show();
     }
 
@@ -249,7 +255,7 @@ public class Controller extends DatabaseHandler implements Initializable {
     }
 
     private void showAdder(Button addNewDoc) throws IOException {
-        addNewDoc.getScene().getWindow().hide();
+//        addNewDoc.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/file.fxml"));
         Parent root = loader.load();
         Stage stageReg = new Stage();

@@ -51,7 +51,6 @@ public class LoginController extends DatabaseHandler {
         loginButton.setOnAction(event -> authenticated());
 
         this.guest.setOnAction((event) -> {
-            System.out.println("гость кнопка");
             try {
                 Controller.permit = false;
                 showMainView(loginButton);
@@ -69,7 +68,6 @@ public class LoginController extends DatabaseHandler {
         } else {
             Controller.permit = true;
             Controller.admin = checkAdminBool(userStr);
-            System.out.println("ADMIN  " + checkAdminBool(userStr));
         }
         return bool;
     }

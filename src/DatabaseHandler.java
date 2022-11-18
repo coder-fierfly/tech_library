@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class DatabaseHandler extends Configs {
     Connection dbConnection;
+    String nameStr = "_name";
+    String idStr = "_id";
 
     public void getDbConnection() throws SQLException {
         try {
@@ -27,7 +29,7 @@ public class DatabaseHandler extends Configs {
     }
 
     //
-    public ArrayList<String> getNamePlane() {
+    public ArrayList<String> getName(String str) {
         Statement statement;
         try {
             statement = dbConnection.createStatement();
@@ -36,11 +38,32 @@ public class DatabaseHandler extends Configs {
         }
         ResultSet resultSet;
         try {
-            resultSet = statement.executeQuery("SELECT * FROM " + Const.TABLE_PLANE);
+            //SELECT doc_name FROM doc
+            String sel = "SELECT " + str + nameStr+ " FROM " + str;
+            resultSet = statement.executeQuery(sel);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return resultToArrayStr(resultSet, 2);
+        return resultToArrayStr(resultSet, 1);
+    }
+
+    public int getId(String str, String table) {
+        Statement statement;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ResultSet resultSet;
+        try {
+            //SELECT plane_id FROM plane WHERE plane_name = 'plane1'
+            String sel = "SELECT " + table + idStr + " FROM " + table + " WHERE " + table
+                    + nameStr + " ='" + str + "'";
+            resultSet = statement.executeQuery(sel);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return resultToInt(resultSet);
     }
 
     // название самолета по эффективити
@@ -248,6 +271,99 @@ public class DatabaseHandler extends Configs {
         }
     }
 
+    public void bundlePlaneEff(int planeId, int effId) {
+        Statement statement;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        String insert;
+        //INSERT INTO plane_effectivity (plane_id, effectivity_id) VALUES (3,5)
+        insert = "INSERT INTO " + Const.TABLE_PLANE_EFF + " (" + Const.PLANE_ID + "," + Const.EFF_ID + ")" +
+                "VALUES(" + planeId + "," + effId + ")";
+        try {
+            statement.executeUpdate(insert);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void bundleEffDoc(int effId, int docId) {
+        Statement statement;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        //
+        String insert = "INSERT INTO " + Const.TABLE_DOC_EFF + " (" + Const.EFF_ID + "," + Const.DOC_ID + ")" +
+                " VALUES(" + effId + "," + docId + ")";
+        try {
+            statement.executeUpdate(insert);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void bundleTextOnDoc(int docId, String text) {
+        Statement statement;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        //
+        String insert = "INSERT INTO " + Const.TABLE_TEXT + " (" + Const.DOC_ID + "," + Const.DOC_TEXT + ")" +
+                " VALUES(" + docId + ",'" + text + "')";
+        try {
+            statement.executeUpdate(insert);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void addNew(String name, String table) {
+        Statement statement;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        String insert;
+        insert = "INSERT INTO " + table + "(" + table + nameStr + ")" + " VALUES('" + name + "')";
+        try {
+            statement.executeUpdate(insert);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int addNewGetId(String name, String table) {
+        Statement statement;
+        try {
+            statement = dbConnection.createStatement();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        String insert;
+        ResultSet resultSet;
+        //INSERT into doc (doc_name) VALUES('asd'); SELECT lastval();
+        insert = "INSERT INTO " + table + "(" + table + nameStr + ")" + " VALUES('" + name + "')";
+        String sel = "SELECT " + "lastval();";
+        try {
+            statement.executeUpdate(insert);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        try {
+            resultSet = statement.executeQuery(sel);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return resultToInt(resultSet);
+    }
+
     // проверка соответствия логина и пароля бд
     public boolean checkLogPass(String login, String password) {
         Statement statement;
@@ -271,7 +387,6 @@ public class DatabaseHandler extends Configs {
     // проверка на то существует ли такой логин в базе или нет
     public boolean checkLogin(String login) {
         ResultSet resultSet = result(login);
-        System.out.println("checkLogin");
         try {
             return resultSet.next();
         } catch (SQLException e) {
@@ -281,7 +396,6 @@ public class DatabaseHandler extends Configs {
 
     //проверка на то является ли пользователь администратором
     public boolean checkAdminBool(String login) {
-        System.out.println(" checkAdminBool");
         ResultSet resultSet = result(login);
         Boolean bool = null;
 
@@ -317,6 +431,22 @@ public class DatabaseHandler extends Configs {
         return list;
     }
 
+    public int resultToInt(ResultSet resultSet){
+        int id = -1;
+        while (true) {
+            try {
+                if (!resultSet.next()) break;
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                id = resultSet.getInt(1);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return id;
+    }
     public ArrayList<Integer> resultToArrayInt(ResultSet resultSet) {
         ArrayList<Integer> arrayList = new ArrayList<>();
         while (true) {
@@ -351,7 +481,7 @@ public class DatabaseHandler extends Configs {
         return storage;
     }
 
-    public ResultSet result(String str){
+    public ResultSet result(String str) {
         Statement statement;
         try {
             statement = dbConnection.createStatement();
