@@ -4,9 +4,6 @@ import java.util.logging.*;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.*;
 
-/**
- * Manages control flow for logins
- */
 public class LoginManager {
     public static Scene scene;
 

@@ -3,17 +3,17 @@ import javafx.scene.Node;
 import javafx.util.Duration;
 
 public class Shake {
-    private TranslateTransition tt;
+    private final TranslateTransition translate;
 
     public Shake (Node node) {
-        tt = new TranslateTransition(Duration.millis(70), node);
-        tt.setFromX(-10f);
-        tt.setByX(10f);
-        tt.setCycleCount(3);
-        tt.setAutoReverse(true);
+        translate = new TranslateTransition(Duration.millis(70), node);
+        translate.setFromX(-10f);
+        translate.setByX(10f);
+        translate.setCycleCount(3);
+        translate.setAutoReverse(true);
     }
 
     public void playAnim() {
-        tt.playFromStart();
+        translate.playFromStart();
     }
 }

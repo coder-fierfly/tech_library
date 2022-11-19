@@ -44,7 +44,7 @@ public class Controller extends DatabaseHandler implements Initializable {
 
         if (!admin) {
             authorization.setVisible(false);
-            addNewDoc.setVisible(false);
+          //TODO  addNewDoc.setVisible(false);
         } else {
             authorization.setText("Зарегистрировать");
         }
@@ -62,8 +62,6 @@ public class Controller extends DatabaseHandler implements Initializable {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
         if (item != null && item.getValue().matches(".+\\.pdf")) {
             String parent =  item.getParent().getValue().replaceAll(" ", "_");
-            //TODO добавить в путь эффективити, сделать в эффективити замену пробелов на _
-            //TODO здесь возможна ошибка
             if (permit || admin) {
                 openPdf("src/doc/" + parent + "/" + item.getValue());
                 treeView.getSelectionModel().clearSelection();
@@ -79,19 +77,19 @@ public class Controller extends DatabaseHandler implements Initializable {
         // добавление картиночки
         // TreeItem<String> rootItem = new TreeItem<>("Files", new ImageView(new Image("Folder_Icon.png")));
         ArrayList<String> airplane = getName("plane");
-
-        for (int i = 0; i < airplane.size(); i++) {
-            TreeItem<String> planeTree = new TreeItem<>(airplane.get(i));
+        //for (int i = 0; i < airplane.size(); i++) {
+        for (String plane : airplane) {
+            TreeItem<String> planeTree = new TreeItem<>(plane);
             rootItem.getChildren().add(planeTree);
-            ArrayList<String> eff = getEffNameByPlaneId(i + 1);
+            ArrayList<String> eff = getEffNameByPlaneId(getId(plane, "plane"));
             // второе вложение - эффективити
-            for (int j = 0; j < eff.size(); j++) {
-                TreeItem<String> effTree = new TreeItem<>(eff.get(j));
+            for (String e : eff) {
+                TreeItem<String> effTree = new TreeItem<>(e);
                 planeTree.getChildren().add(effTree);
-                ArrayList<String> doc = getDocByEffName(eff.get(j));
+                ArrayList<String> doc = getDocByEffName(e);
                 // третье вложение - документ
-                for (int k = 0; k < doc.size(); k++) {
-                    TreeItem<String> docTree = new TreeItem<>(doc.get(k));
+                for (String d : doc) {
+                    TreeItem<String> docTree = new TreeItem<>(d);
                     effTree.getChildren().add(docTree);
                 }
             }
@@ -158,7 +156,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         });
         this.addNewDoc.setOnAction((event) -> {
             try {
-                showAdder(addNewDoc);
+                showAdder();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -182,36 +180,27 @@ public class Controller extends DatabaseHandler implements Initializable {
             int id = getEffNameIdByDocId(entry.getKey()).num;
             effMap.put(id, str);
         }
-        Iterator<Map.Entry<Integer, String>> it = effMap.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry<Integer, String> entry = it.next();
+        for (Map.Entry<Integer, String> entry : effMap.entrySet()) {
             planeMap.put(getPlaneByEff(entry.getKey()).num, getPlaneByEff(entry.getKey()).str);
         }
 
         TreeItem<String> rootItem = new TreeItem<>("Самолеты");
 
-        Iterator<Map.Entry<Integer, String>> planeIt = planeMap.entrySet().iterator();
-        while (planeIt.hasNext()) {
-            Map.Entry<Integer, String> planeEntry = planeIt.next();
+        for (Map.Entry<Integer, String> planeEntry : planeMap.entrySet()) {
             planeTree = new TreeItem<>(planeEntry.getValue());
             rootItem.getChildren().add(planeTree);
-            Iterator<Map.Entry<Integer, String>> effIt = effMap.entrySet().iterator();
 
-            while (effIt.hasNext()) {
-                Map.Entry<Integer, String> effEnt = effIt.next();
+            for (Map.Entry<Integer, String> effEnt : effMap.entrySet()) {
                 ArrayList<Integer> effArray = getEffIdByPlaneId(planeEntry.getKey());
-                for (int i = 0; i < effArray.size(); i++) {
-                    if (effArray.get(i).equals(effEnt.getKey())) {
+                for (Integer effInt : effArray) {
+                    if (effInt.equals(effEnt.getKey())) {
                         effTree = new TreeItem<>(effEnt.getValue());
                         planeTree.getChildren().add(effTree);
 
-                        Iterator<Map.Entry<Integer, String>> docIt = docMap.entrySet().iterator();
-
-                        while (docIt.hasNext()) {
-                            Map.Entry<Integer, String> docEnt = docIt.next();
+                        for (Map.Entry<Integer, String> docEnt : docMap.entrySet()) {
                             ArrayList<Integer> docArray = getDocIdByEffId(effEnt.getKey());
-                            for (int j = 0; j < docArray.size(); j++) {
-                                if (docArray.get(j).equals(docEnt.getKey())) {
+                            for (Integer docInt : docArray) {
+                                if (docInt.equals(docEnt.getKey())) {
                                     docTree = new TreeItem<>(docEnt.getValue());
                                     effTree.getChildren().add(docTree);
                                 }
@@ -236,7 +225,8 @@ public class Controller extends DatabaseHandler implements Initializable {
         stage.setTitle("Информация");
         stage.setResizable(false);
         try {
-            stage.getIcons().add(new Image( getClass().getResource("picture/plane.png").toURI().toString()));
+            stage.getIcons().add(new Image(getClass()
+                    .getResource("picture/plane.png").toURI().toString()));
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -254,8 +244,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         stageReg.show();
     }
 
-    private void showAdder(Button addNewDoc) throws IOException {
-//        addNewDoc.getScene().getWindow().hide();
+    private void showAdder() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/file.fxml"));
         Parent root = loader.load();
         Stage stageReg = new Stage();

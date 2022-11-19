@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="добавление доков для админа">
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="остался дизайн">
+      <change afterPath="$PROJECT_DIR$/src/doc/eff_3/doc4.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Const.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoginDemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoginManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PdfReader.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/1 doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/eff1/1 doc.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/doc/2 doc.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/doc/eff2/2 doc.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shake.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fx/file.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/file.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fx/library.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/library.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,49 +46,65 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/untitled8&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Facets&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/IdeaProjects/untitled8/src/doc/eff_3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\untitled8\src\doc\eff_3" />
       <recent name="D:\IdeaProjects\untitled8\src\picture" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\untitled8\src\doc\eff_3" />
       <recent name="D:\IdeaProjects\untitled8\src\doc\eff2" />
       <recent name="D:\IdeaProjects\untitled8\src\doc\eff_1" />
       <recent name="D:\IdeaProjects\untitled8\src\doc" />
       <recent name="D:\IdeaProjects\untitled8\src\picture" />
-      <recent name="D:\IdeaProjects\untitled8\src\fx" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.LoginDemoApplication">
-    <configuration name="LoginDemoApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="LoginDemoApplication" />
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="FileChooserSample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FileChooserSample" />
       <module name="untitled8" />
       <option name="VM_PARAMETERS" value="--module-path &quot;D:\libraries\javafx-sdk-18\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="untitled8" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;D:\libraries\javafx-sdk-18\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Pdf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Pdf" />
+      <module name="untitled8" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -102,11 +119,15 @@
     </configuration>
     <list>
       <item itemvalue="Application.PdfReader" />
-      <item itemvalue="Application.LoginDemoApplication" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.FileChooserSample" />
+      <item itemvalue="Application.Pdf" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.LoginDemoApplication" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.FileChooserSample" />
+        <item itemvalue="Application.Pdf" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +223,17 @@
       <workItem from="1668775644431" duration="871000" />
       <workItem from="1668776866108" duration="1733000" />
       <workItem from="1668780953134" duration="3100000" />
-      <workItem from="1668784070103" duration="624000" />
+      <workItem from="1668784070103" duration="711000" />
+      <workItem from="1668789780197" duration="82000" />
+      <workItem from="1668791040818" duration="242000" />
+      <workItem from="1668843691335" duration="616000" />
+      <workItem from="1668844427414" duration="105000" />
+      <workItem from="1668844544696" duration="42000" />
+      <workItem from="1668844604581" duration="1868000" />
+      <workItem from="1668847932633" duration="26000" />
+      <workItem from="1668864436630" duration="1145000" />
+      <workItem from="1668867500036" duration="2897000" />
+      <workItem from="1668872563621" duration="1045000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -351,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668611409532</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="остался дизайн">
+      <created>1668784726585</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1668784726585</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,6 +438,7 @@
     <MESSAGE value="немного поработала над дизайном" />
     <MESSAGE value="приложение готово" />
     <MESSAGE value="добавление доков для админа" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавление доков для админа" />
+    <MESSAGE value="остался дизайн" />
+    <option name="LAST_COMMIT_MESSAGE" value="остался дизайн" />
   </component>
 </project>

@@ -32,12 +32,12 @@ public class RegController extends DatabaseHandler {
             boolean regBool = true;
             if (name.getText().isEmpty()) {
                 regBool = false;
-                Shake shake= new Shake(name);
+                Shake shake = new Shake(name);
                 shake.playAnim();
             }
             if (surname.getText().isEmpty()) {
                 regBool = false;
-                Shake shake= new Shake(surname);
+                Shake shake = new Shake(surname);
                 shake.playAnim();
             }
             if (!password.getText().isEmpty() && !passwordCheck.getText().isEmpty()) {
@@ -53,12 +53,12 @@ public class RegController extends DatabaseHandler {
                     regBool = false;
                 }
             } else {
-                Shake shake= new Shake(password);
+                Shake shake = new Shake(password);
                 shake.playAnim();
                 regBool = false;
             }
             if (login.getText().isEmpty()) {
-                Shake shake= new Shake(login);
+                Shake shake = new Shake(login);
                 shake.playAnim();
                 regBool = false;
             } else if (checkLogin(login.getText().toLowerCase())) {
@@ -81,6 +81,6 @@ public class RegController extends DatabaseHandler {
 
     static void showAuthorization(Button buttonReg) throws IOException {
         buttonReg.getScene().getWindow().hide();
-        new LoginDemoApplication().start(LoginDemoApplication.stage);
+        new Main().start(Main.stage);
     }
 }

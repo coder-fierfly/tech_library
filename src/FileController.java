@@ -4,11 +4,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
+import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.io.RandomAccessBufferedFileInputStream;
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class FileController extends DatabaseHandler {
+    final FileChooser fileChooser = new FileChooser();
+    public File fileDoc;
     public Button addButton;
     public ChoiceBox<String> planeChoice;
     public ChoiceBox<String> effChoice;
@@ -17,6 +28,8 @@ public class FileController extends DatabaseHandler {
     public TextArea docText;
     public Text warningText;
     public TextArea textText;
+    public Button addDoc;
+    public Text success;
 
     public void initialize() {
         try {
@@ -114,8 +127,53 @@ public class FileController extends DatabaseHandler {
                 docStr = docText.getText();
                 docId = addNewGetId(docStr, "doc");
                 bundleEffDoc(effId, docId);
-                bundleTextOnDoc(docId , textText.getText());
+                bundleTextOnDoc(docId, textText.getText());
+
+                success.setText("Успешно");
+                Timer timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        success.setText("");
+                    }
+                }, 2 * 1000);
             }
         });
+        addDoc.setOnAction(
+                e -> {
+                    fileDoc = fileChooser.showOpenDialog(Main.stage);
+                    if (fileDoc != null) {
+                        docText.setText(fileDoc.getName());
+                        getTextPdf(fileDoc.getPath());
+                    }
+                });
+    }
+
+    public void getTextPdf(String path) {
+        PDFParser parser;
+        PDDocument pdDoc = null;
+        COSDocument cosDoc = null;
+        PDFTextStripper pdfStripper;
+
+        String parsedText;
+        try {
+            parser = new PDFParser(new RandomAccessBufferedFileInputStream(path));
+            parser.parse();
+            cosDoc = parser.getDocument();
+            pdfStripper = new PDFTextStripper();
+            pdDoc = new PDDocument(cosDoc);
+            parsedText = pdfStripper.getText(pdDoc);
+            textText.setText(parsedText);
+        } catch (Exception e) {
+            e.printStackTrace();
+            try {
+                if (cosDoc != null)
+                    cosDoc.close();
+                if (pdDoc != null)
+                    pdDoc.close();
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        }
     }
 }

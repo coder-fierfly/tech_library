@@ -5,14 +5,13 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 /* TODO сделать 3 пользователей
-  варики:
+  Варики:
 - как минимум можно сделать зарегистрированного пользователя и модера/админа
-- сделать для зареганного пользователя свою "библиотеку"
+- сделать для зарегистрированного пользователя свою "библиотеку"
 - документы могут открывать только зарегистрированные пользователи
 - модератор может добавлять доки, а админ может все
 */
-//TODO сделать картинки на некоторых иконках
-public class LoginDemoApplication extends Application {
+public class Main extends Application {
     public static Stage stage = new Stage();
 
     public static void main(String[] args) {
