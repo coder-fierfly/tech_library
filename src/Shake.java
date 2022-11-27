@@ -4,7 +4,6 @@ import javafx.util.Duration;
 
 public class Shake {
     private final TranslateTransition translate;
-
     public Shake (Node node) {
         translate = new TranslateTransition(Duration.millis(70), node);
         translate.setFromX(-10f);
@@ -12,7 +11,6 @@ public class Shake {
         translate.setCycleCount(3);
         translate.setAutoReverse(true);
     }
-
     public void playAnim() {
         translate.playFromStart();
     }

@@ -76,11 +76,11 @@ public class DatabaseHandler extends Configs {
         }
         ResultSet resultSet;
         try {
-//           SELECT plane_name, plane.plane_id
-//     FROM plane
+//      SELECT plane_name, plane.plane_id
+//      FROM plane
 //      JOIN plane_effectivity ON plane.plane_id = plane_effectivity.plane_id
-//--      JOIN effectivity e on e.effectivity_id = plane_effectivity.effectivity_id
-//     WHERE effectivity_id = '1'
+//      JOIN effectivity e on e.effectivity_id = plane_effectivity.effectivity_id
+//      WHERE effectivity_id = '1'
             String sel = "SELECT " + Const.PLANE_NAME + ", " + Const.TABLE_PLANE + "." +
                     Const.PLANE_ID + " FROM " + Const.TABLE_PLANE + " JOIN " +
                     Const.TABLE_PLANE_EFF + " ON " + Const.TABLE_PLANE + "." +

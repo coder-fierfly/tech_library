@@ -20,8 +20,9 @@ import javafx.stage.Stage;
 
 public class Controller extends DatabaseHandler implements Initializable {
     public Text sorry;
-    public Button authorization;
     public Button addNewDoc;
+    public Button reg;
+    public Button authorizationButton;
     @FXML
     private Button reset;
     @FXML
@@ -41,12 +42,12 @@ public class Controller extends DatabaseHandler implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         text.setText("Введите слово для поиска");
-
         if (!admin) {
-            authorization.setVisible(false);
-          //TODO  addNewDoc.setVisible(false);
+            reg.setVisible(false);
+            addNewDoc.setVisible(false);
         } else {
-            authorization.setText("Зарегистрировать");
+            authorizationButton.setVisible(false);
+            reg.setText("Зарегистрировать");
         }
         try {
             getDbConnection();
@@ -61,13 +62,13 @@ public class Controller extends DatabaseHandler implements Initializable {
     public void selectTreeView() {
         TreeItem<String> item = treeView.getSelectionModel().getSelectedItem();
         if (item != null && item.getValue().matches(".+\\.pdf")) {
-            String parent =  item.getParent().getValue().replaceAll(" ", "_");
+            String parent = item.getParent().getValue().replaceAll(" ", "_");
             if (permit || admin) {
                 openPdf("src/doc/" + parent + "/" + item.getValue());
                 treeView.getSelectionModel().clearSelection();
             } else {
-                sorry.setText("Чтобы открыть документ вам нужно зарегистрироваться");
-                authorization.setVisible(true);
+                sorry.setText("Чтобы открыть документ вам нужно авторизоваться");
+                authorizationButton.setVisible(true);
             }
         }
     }
@@ -119,13 +120,21 @@ public class Controller extends DatabaseHandler implements Initializable {
                 var3.printStackTrace();
             }
         });
-        this.authorization.setOnAction((event) -> {
+        this.authorizationButton.setOnAction((event) -> {
             try {
-                showReg(authorization);
+                showAuth(authorizationButton);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
+        this.reg.setOnAction((event) -> {
+            try {
+                showReg(reg);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
         this.reset.setOnAction((event) -> {
             textArea.setText("");
             text.setText("Выполняю...");
@@ -231,6 +240,17 @@ public class Controller extends DatabaseHandler implements Initializable {
             throw new RuntimeException(e);
         }
         stage.show();
+    }
+
+    private void showAuth(Button buttonReg) throws IOException {
+        buttonReg.getScene().getWindow().hide();
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/authorization.fxml"));
+        Parent root = loader.load();
+        Stage stageReg = new Stage();
+        stageReg.setScene(new Scene(root));
+        stageReg.setTitle("Авторизация");
+        stageReg.setResizable(false);
+        stageReg.show();
     }
 
     private void showReg(Button buttonReg) throws IOException {

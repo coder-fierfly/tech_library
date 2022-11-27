@@ -24,7 +24,7 @@ public class Main extends Application {
         stageLogin.getIcons().add(new Image("picture/plane.png"));
         stageLogin.setTitle("ATL");
         Scene scene = new Scene(new StackPane());
-        LoginManager loginManager = new LoginManager(scene);
+        AuthorManager loginManager = new AuthorManager(scene);
         loginManager.showLoginScreen();
         stageLogin.setScene(scene);
         stageLogin.show();

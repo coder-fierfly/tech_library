@@ -16,7 +16,7 @@ import java.sql.SQLException;
  * admin = true админ
  * */
 
-public class LoginController extends DatabaseHandler {
+public class AuthorController extends DatabaseHandler {
     @FXML
     private Button guest;
 
@@ -64,6 +64,10 @@ public class LoginController extends DatabaseHandler {
         String userStr = user.getText().toLowerCase();
         boolean bool = checkLogPass(userStr, password.getText());
         if (!bool) {
+            Shake shakeUser = new Shake(user);
+            shakeUser.playAnim();
+            Shake shakePass = new Shake(password);
+            shakePass.playAnim();
             textReg.setText("Не совпадает пароль или логин");
         } else {
             Controller.permit = true;

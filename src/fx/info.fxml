@@ -55,7 +55,7 @@
         </font>
     </Text>
     <Text layoutX="38.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0"
-          text="По всем вопросам и предложениям обращайтесь на почту andrianovalena1@gmail.com или телеграмм @ffiefly."
+          text="По всем вопросам и предложениям обращайтесь телеграмм @ffiefly или на почту andrianovalena1@gmail.com ."
           wrappingWidth="532.6015014648438">
         <font>
             <Font name="Berlin Sans FB Demi" size="13.0"/>
@@ -77,8 +77,8 @@
         </font>
     </Text>
     <Pane layoutX="359.0" layoutY="167.0" prefHeight="200.0" prefWidth="200.0">
-            <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                <Image url="/picture/qr.png"/>
-            </ImageView>
+        <ImageView fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="/picture/qr.png"/>
+        </ImageView>
     </Pane>
 </AnchorPane>

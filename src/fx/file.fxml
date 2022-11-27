@@ -4,21 +4,27 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="581.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FileController">
-   <children>
-      <Button fx:id="addButton" layoutX="630.0" layoutY="515.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="64.0" text="ок" />
-      <Button fx:id="addDoc" layoutX="495.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="191.0" text="addDoc" />
-      <ChoiceBox fx:id="planeChoice" layoutX="33.0" layoutY="136.0" prefHeight="25.0" prefWidth="191.0" />
-      <ChoiceBox fx:id="effChoice" layoutX="271.0" layoutY="136.0" prefHeight="25.0" prefWidth="191.0" />
-      <Text layoutX="564.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Документ" />
-      <Text layoutX="105.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Самолет" />
-      <Text layoutX="331.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Эффективити" />
-      <TextArea fx:id="effText" layoutX="271.0" layoutY="80.0" prefHeight="38.0" prefWidth="191.0" />
-       <TextArea fx:id="docText" layoutX="495.0" layoutY="80.0" prefHeight="38.0" prefWidth="191.0" />
-       <TextArea fx:id="planeText" layoutX="33.0" layoutY="80.0" prefHeight="38.0" prefWidth="191.0" />
-      <Text fx:id="warningText" layoutX="46.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="373.13671875" />
-      <TextArea fx:id="textText" layoutX="36.0" layoutY="225.0" prefHeight="334.0" prefWidth="555.0" />
-      <Text layoutX="285.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Текст документа" />
-      <Text fx:id="success" layoutX="651.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-   </children>
+<AnchorPane prefHeight="581.0" prefWidth="735.0" xmlns="http://javafx.com/javafx/11.0.14-internal"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="FileController">
+    <Button fx:id="addButton" layoutX="630.0" layoutY="515.0" mnemonicParsing="false" prefHeight="43.0"
+            prefWidth="64.0" text="ок"/>
+    <Button fx:id="addDoc" layoutX="495.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0"
+            prefWidth="191.0" text="addDoc"/>
+    <ChoiceBox fx:id="planeChoice" layoutX="33.0" layoutY="136.0" prefHeight="25.0" prefWidth="191.0"/>
+    <ChoiceBox fx:id="effChoice" layoutX="271.0" layoutY="136.0" prefHeight="25.0" prefWidth="191.0"/>
+    <Text layoutX="564.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Документ"/>
+    <Text layoutX="105.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Самолет"/>
+    <Text layoutX="331.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Эффективити"/>
+    <TextArea fx:id="effText" layoutX="271.0" layoutY="80.0" prefHeight="38.0" prefWidth="191.0"/>
+    <TextArea fx:id="docText" layoutX="495.0" layoutY="80.0" prefHeight="38.0" prefWidth="191.0"
+              promptText="выберите файл по кнопке"/>
+    <TextArea fx:id="planeText" layoutX="33.0" layoutY="80.0" prefHeight="38.0" prefWidth="191.0"/>
+    <Text fx:id="warningText" layoutX="188.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          wrappingWidth="373.13671875"/>
+    <TextArea fx:id="textText" layoutX="33.0" layoutY="223.0" prefHeight="334.0" prefWidth="555.0"
+              promptText="Текст автоматически сгенерируется после выбора файла"/>
+    <Text layoutX="285.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Текст документа"/>
+    <Text fx:id="success" layoutX="651.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0"/>
+    <Text fx:id="docNameText" layoutX="552.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0"
+          text="Text" wrappingWidth="90.298828125"/>
 </AnchorPane>

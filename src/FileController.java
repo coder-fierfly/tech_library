@@ -11,7 +11,9 @@ import org.apache.pdfbox.pdfparser.PDFParser;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 
-import java.io.File;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Timer;
@@ -30,6 +32,7 @@ public class FileController extends DatabaseHandler {
     public TextArea textText;
     public Button addDoc;
     public Text success;
+    public static String effStr;
 
     public void initialize() {
         try {
@@ -41,6 +44,7 @@ public class FileController extends DatabaseHandler {
     }
 
     public void drawFooter() {
+        addButton.setDisable(true);
         ArrayList<String> planeArr = getName("plane");
         ObservableList<String> observableListPlane = FXCollections.observableArrayList();
         observableListPlane.add("");
@@ -65,7 +69,7 @@ public class FileController extends DatabaseHandler {
                 shakeEff.playAnim();
                 Shake shEffChoice = new Shake(effChoice);
                 shEffChoice.playAnim();
-            } else if (docText.getText().isEmpty()) {
+            } else if (docText.getText().isEmpty() || fileDoc == null) {
                 Shake shakeDoc = new Shake(docText);
                 shakeDoc.playAnim();
             } else if (textText.getText().isEmpty()) {
@@ -75,7 +79,6 @@ public class FileController extends DatabaseHandler {
             } else {
                 warningText.setText("");
                 String planeStr;
-                String effStr;
                 String docStr;
                 int planeId;
                 int effId;
@@ -104,7 +107,6 @@ public class FileController extends DatabaseHandler {
 
                 // если eff введен в текстовое поле
                 if (!effText.getText().isEmpty()) {
-                    //effText.getText();
                     String effBuff = effText.getText();
                     if (effArr.contains(effBuff)) {
                         effStr = effBuff;
@@ -130,21 +132,36 @@ public class FileController extends DatabaseHandler {
                 bundleTextOnDoc(docId, textText.getText());
 
                 success.setText("Успешно");
-                Timer timer = new Timer();
-                timer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        success.setText("");
-                    }
-                }, 2 * 1000);
+                hide(success);
+
+                File rootFile = new File("src/Configs.java");
+                String slash = "\\";
+                String path = rootFile.getAbsolutePath().replace("Configs.java", "").replace(slash, "/");
+                File theDir = new File(path + "doc/" + effStr + "/");
+                if (!theDir.exists()) {
+                    theDir.mkdirs();
+                }
+                File fff = new File(path + "doc/" + effStr + "/" + fileDoc.getName());
+                try {
+                    Files.copy(Paths.get(fileDoc.getPath()), Paths.get(fff.getPath()));
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
             }
+            docText.setText("");
+            textText.setText("");
+            addButton.setDisable(true);
         });
         addDoc.setOnAction(
                 e -> {
                     fileDoc = fileChooser.showOpenDialog(Main.stage);
-                    if (fileDoc != null) {
+                    if (fileDoc != null && fileDoc.getName().matches(".+\\.pdf")) {
                         docText.setText(fileDoc.getName());
                         getTextPdf(fileDoc.getPath());
+                        addButton.setDisable(false);
+                    } else {
+                        warningText.setText("Файл должен иметь разрешение .pdf");
+                        hide(warningText);
                     }
                 });
     }
@@ -175,5 +192,15 @@ public class FileController extends DatabaseHandler {
                 e1.printStackTrace();
             }
         }
+    }
+
+    public void hide(Text text) {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                text.setText("");
+            }
+        }, 2 * 1000);
     }
 }
