@@ -32,6 +32,7 @@ public class AuthorController extends DatabaseHandler {
     private Button loginButton;
     static Stage stage = new Stage();
 
+    // подключение к бд
     public void initialize() {
         try {
             getDbConnection();
@@ -40,7 +41,8 @@ public class AuthorController extends DatabaseHandler {
         }
     }
 
-    public void initManager() {
+    // прорисовка кнопок
+    public void buttonManager() {
         buttonReg.setOnAction((event) -> {
             try {
                 showReg(buttonReg);
@@ -60,6 +62,7 @@ public class AuthorController extends DatabaseHandler {
         });
     }
 
+    // проверка на совпадение всех критериев
     public boolean authorize() {
         String userStr = user.getText().toLowerCase();
         boolean bool = checkLogPass(userStr, password.getText());
@@ -76,6 +79,7 @@ public class AuthorController extends DatabaseHandler {
         return bool;
     }
 
+    // отображение экрана
     public void authenticated() {
         try {
             if (authorize()) {
@@ -86,6 +90,7 @@ public class AuthorController extends DatabaseHandler {
         }
     }
 
+    // основное окно
     private void showMainView(Button loginButton) throws IOException {
         loginButton.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/library.fxml"));
@@ -98,6 +103,7 @@ public class AuthorController extends DatabaseHandler {
         stage.show();
     }
 
+    // окно регистрации
     private void showReg(Button buttonReg) throws IOException {
         buttonReg.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/reg.fxml"));

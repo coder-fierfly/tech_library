@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.*;
 import java.sql.*;
@@ -42,12 +41,15 @@ public class Controller extends DatabaseHandler implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         text.setText("Введите слово для поиска");
+        authorizationButton.setVisible(false);
         if (!admin) {
             reg.setVisible(false);
             addNewDoc.setVisible(false);
         } else {
-            authorizationButton.setVisible(false);
             reg.setText("Зарегистрировать");
+        }
+        if(!permit){
+            authorizationButton.setVisible(true);
         }
         try {
             getDbConnection();
@@ -116,8 +118,8 @@ public class Controller extends DatabaseHandler implements Initializable {
         this.info.setOnAction((event) -> {
             try {
                 this.infoOpen();
-            } catch (IOException var3) {
-                var3.printStackTrace();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         });
         this.authorizationButton.setOnAction((event) -> {
@@ -129,7 +131,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         });
         this.reg.setOnAction((event) -> {
             try {
-                showReg(reg);
+                showReg();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -183,7 +185,6 @@ public class Controller extends DatabaseHandler implements Initializable {
         Map<Integer, String> planeMap = new HashMap<>();
         while (itr.hasNext()) {
             Map.Entry<Integer, String> entry = itr.next();
-//            docTree = new TreeItem<>(entry.getValue());
             // без повторений добавляются имена эфф
             String str = getEffNameIdByDocId(entry.getKey()).str;
             int id = getEffNameIdByDocId(entry.getKey()).num;
@@ -233,15 +234,11 @@ public class Controller extends DatabaseHandler implements Initializable {
         stage.setScene(new Scene(root));
         stage.setTitle("Информация");
         stage.setResizable(false);
-        try {
-            stage.getIcons().add(new Image(getClass()
-                    .getResource("picture/plane.png").toURI().toString()));
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
+        stage.getIcons().add(new Image("picture/plane.png"));
         stage.show();
     }
 
+    // открытие окна с авторизацией
     private void showAuth(Button buttonReg) throws IOException {
         buttonReg.getScene().getWindow().hide();
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/authorization.fxml"));
@@ -253,8 +250,8 @@ public class Controller extends DatabaseHandler implements Initializable {
         stageReg.show();
     }
 
-    private void showReg(Button buttonReg) throws IOException {
-        buttonReg.getScene().getWindow().hide();
+    // открытие окна с регистрацией
+    public void showReg() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/reg.fxml"));
         Parent root = loader.load();
         Stage stageReg = new Stage();
@@ -264,6 +261,7 @@ public class Controller extends DatabaseHandler implements Initializable {
         stageReg.show();
     }
 
+    // открытие окна с добавлением файлов
     private void showAdder() throws IOException {
         FXMLLoader loader = new FXMLLoader(this.getClass().getResource("fx/file.fxml"));
         Parent root = loader.load();

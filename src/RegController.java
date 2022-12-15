@@ -32,13 +32,11 @@ public class RegController extends DatabaseHandler {
             boolean regBool = true;
             if (name.getText().isEmpty()) {
                 regBool = false;
-                Shake shake = new Shake(name);
-                shake.playAnim();
+                playShake(name);
             }
             if (surname.getText().isEmpty()) {
                 regBool = false;
-                Shake shake = new Shake(surname);
-                shake.playAnim();
+                playShake(surname);
             }
             if (!password.getText().isEmpty() && !passwordCheck.getText().isEmpty()) {
                 if (password.getText().equals(passwordCheck.getText())) {
@@ -50,19 +48,18 @@ public class RegController extends DatabaseHandler {
                     }
                 } else {
                     textRegError.setText("Пароли не совпадают.");
+                    playShake(passwordCheck);
                     regBool = false;
                 }
             } else {
-                Shake shake = new Shake(password);
-                shake.playAnim();
+                playShake(password);
                 regBool = false;
             }
             if (login.getText().isEmpty()) {
-                Shake shake = new Shake(login);
-                shake.playAnim();
+                playShake(login);
                 regBool = false;
             } else if (checkLogin(login.getText().toLowerCase())) {
-                textRegError.setText("Такой логин уже существет");
+                textRegError.setText("Такой логин уже существует");
                 regBool = false;
             }
 
@@ -82,5 +79,10 @@ public class RegController extends DatabaseHandler {
     static void showAuthorization(Button buttonReg) throws IOException {
         buttonReg.getScene().getWindow().hide();
         new Main().start(Main.stage);
+    }
+
+    static void playShake(TextField tf) {
+        Shake shake = new Shake(tf);
+        shake.playAnim();
     }
 }

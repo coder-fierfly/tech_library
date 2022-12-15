@@ -1,7 +1,7 @@
 import javafx.animation.TranslateTransition;
 import javafx.scene.Node;
 import javafx.util.Duration;
-
+// класс для тряски пустых элементов
 public class Shake {
     private final TranslateTransition translate;
     public Shake (Node node) {

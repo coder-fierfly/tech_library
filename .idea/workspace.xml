@@ -4,22 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="чутка добавила функционала">
-      <change afterPath="$PROJECT_DIR$/src/fx/authorization.fxml" afterDir="false" />
+    <list default="true" id="ac9b14d2-407b-417d-9b30-14791e82714f" name="Changes" comment="исправила мелкие недочеты">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AuthorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AuthorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AuthorManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AuthorManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DatabaseHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DatabaseHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AuthorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AuthorManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RegController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RegController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Shake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/file.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/file.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/info.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/info.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/library.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/library.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/login.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fx/reg.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fx/reg.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/picture/qr.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc/eff1/1 doc.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc/eff2/2 doc.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc/eff2/3 doc.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/doc/eff_3/doc4.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,32 +45,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IdeaProjects/untitled8&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/IdeaProjects/untitled8",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\IdeaProjects\untitled8\src\doc\eff_3" />
@@ -249,7 +245,22 @@
       <workItem from="1669388577443" duration="595000" />
       <workItem from="1669398148167" duration="653000" />
       <workItem from="1669452861700" duration="2320000" />
-      <workItem from="1669533899288" duration="1990000" />
+      <workItem from="1669533899288" duration="2056000" />
+      <workItem from="1669626809470" duration="1199000" />
+      <workItem from="1670432116403" duration="51000" />
+      <workItem from="1670496071277" duration="3436000" />
+      <workItem from="1670684366433" duration="770000" />
+      <workItem from="1670690371412" duration="3256000" />
+      <workItem from="1670695465052" duration="766000" />
+      <workItem from="1670746759080" duration="116000" />
+      <workItem from="1670828778875" duration="3728000" />
+      <workItem from="1671026530650" duration="1419000" />
+      <workItem from="1671028846670" duration="1607000" />
+      <workItem from="1671030550106" duration="31000" />
+      <workItem from="1671102654248" duration="45000" />
+      <workItem from="1671102753156" duration="3001000" />
+      <workItem from="1671106344907" duration="565000" />
+      <workItem from="1671123017516" duration="3104000" />
     </task>
     <task id="LOCAL-00001" summary="первые наработки по курсовой">
       <created>1666374113032</created>
@@ -412,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668873652730</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="исправила мелкие недочеты">
+      <created>1669535918815</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1669535918815</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -463,6 +481,7 @@
     <MESSAGE value="добавление доков для админа" />
     <MESSAGE value="остался дизайн" />
     <MESSAGE value="чутка добавила функционала" />
-    <option name="LAST_COMMIT_MESSAGE" value="чутка добавила функционала" />
+    <MESSAGE value="исправила мелкие недочеты" />
+    <option name="LAST_COMMIT_MESSAGE" value="исправила мелкие недочеты" />
   </component>
 </project>

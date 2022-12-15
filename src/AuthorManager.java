@@ -19,7 +19,7 @@ public class AuthorManager {
             scene.setRoot(loader.load());
             AuthorController controller =
                     loader.getController();
-            controller.initManager();
+            controller.buttonManager();
         } catch (IOException ex) {
             Logger.getLogger(AuthorManager.class.getName()).log(Level.SEVERE, null, ex);
         }
